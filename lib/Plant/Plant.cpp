@@ -1,4 +1,5 @@
 #include "Plant.h"
+#include "DebugMacros.h"
 
 Plant::Plant(int pumpPin, int moistPin, int lightPin, 
              int rPin, int gPin, int bPin,
@@ -43,8 +44,11 @@ void Plant::begin() {
     pinMode(_pinGreen, OUTPUT);
     pinMode(_pinBlue, OUTPUT);
 
-    LOG("System Initialized.");
+    LOG("========================================");
+    LOG("         SYSTEM INITIALIZED             ");
+    LOG("========================================");
     LOG("Settings -> Moist Thresh: %d%% | Light Thresh: %d", _moistThreshold, _lightThreshold);
+    LOG("----------------------------------------");
 }
 
 void Plant::update() {
@@ -60,10 +64,12 @@ void Plant::manageWatering(unsigned long now) {
                 _moistureCheckTimer = now; 
                 
                 int currentMoist = _moisture.getPercentage();
-                LOG("Checking Soil... Level: %d%% (Threshold: %d%%)", currentMoist, _moistThreshold);
+                LOG("----------------------------------------");
+                LOG("[SOIL CHECK] Level: %d%% (Threshold: %d%%)", currentMoist, _moistThreshold);
 
                 if (currentMoist < _moistThreshold) {
-                    LOG("!!! THIRSTY DETECTED !!! Starting Pump for %lu ms.", _pumpDuration);
+                    LOG(">> !!! THIRSTY DETECTED !!! <<");
+                    LOG(">> Starting Pump for %lu ms.", _pumpDuration);
                     _pump.turnOn();
                     _waterTimer = now; 
                     _waterState = W_PUMPING;
@@ -73,7 +79,8 @@ void Plant::manageWatering(unsigned long now) {
 
         case W_PUMPING:
             if (now - _waterTimer > _pumpDuration) {
-                LOG("Watering Complete. Pump OFF. Entering Cooldown.");
+                LOG(">> Watering Complete. Pump OFF.");
+                LOG(">> Entering Cooldown.");
                 _pump.turnOff();
                 _waterTimer = now; 
                 _waterState = W_COOLDOWN;
@@ -82,7 +89,7 @@ void Plant::manageWatering(unsigned long now) {
 
         case W_COOLDOWN:
             if (now - _waterTimer > _pumpCooldown) {
-                LOG("Cooldown finished. Resuming monitoring.");
+                LOG(">> Cooldown finished. Resuming monitoring.");
                 _waterState = W_IDLE;
             }
             break;
@@ -99,16 +106,16 @@ void Plant::manageLighting(unsigned long now) {
             // Time is up! Read sensor
             int lightLevel = _lightSensor.getLightStatus();
             
-            LOG("Peek Complete. Ambient Light Level: %d", lightLevel);
-                
+            LOG(">> Peek Complete. Ambient Light Level: %d", lightLevel);
+
             if (lightLevel <= _lightThreshold) {
-                LOG("It is Dark (Level %d <= %d). Lights ON.", lightLevel, _lightThreshold);
+                LOG(">> It is Dark (Level %d <= %d). Lights ON.", lightLevel, _lightThreshold);
                 analogWrite(_pinRed, 255);
                 analogWrite(_pinGreen, 255);
                 analogWrite(_pinBlue, 255);
                 _lightingActive = true;
             } else {
-                LOG("It is Bright (Level %d > %d). Lights OFF.", lightLevel, _lightThreshold);
+                LOG(">> It is Bright (Level %d > %d). Lights OFF.", lightLevel, _lightThreshold);
                 // Keep them off
                 _lightingActive = false;
             }
@@ -124,11 +131,12 @@ void Plant::manageLighting(unsigned long now) {
     // --- PHASE 2: Trigger the Check ---
     if (now - _lightCheckTimer > _lightCheckInterval) {
         
-        LOG("Time to check light...");
+        LOG("----------------------------------------");
+        LOG("[LIGHT CHECK] Time to check light...");
 
         // Scenario A: Lights are ON. We must pause.
         if (_lightingActive) {
-            LOG("Lights are ON. Turning OFF briefly to peek at ambient light.");
+            LOG(">> Lights are ON. Turning OFF briefly to peek...");
             analogWrite(_pinRed, 0);
             analogWrite(_pinGreen, 0);
             analogWrite(_pinBlue, 0);
@@ -140,10 +148,10 @@ void Plant::manageLighting(unsigned long now) {
         // Scenario B: Lights are OFF. Instant check.
         else {
             int lightLevel = _lightSensor.getLightStatus();
-            LOG("Lights are OFF. Current Light Level: %d", lightLevel);
+            LOG("[LIGHT CHECK] Lights are OFF. Current Level: %d", lightLevel);
 
             if (lightLevel <= _lightThreshold) {
-                LOG("Too Dark. Turning Lights ON.");
+                LOG(">> Too Dark. Turning Lights ON.");
                 analogWrite(_pinRed, 255);
                 analogWrite(_pinGreen, 255);
                 analogWrite(_pinBlue, 255);

@@ -38,8 +38,6 @@ int LightSensor::readAverage() {
 
 int LightSensor::getLightStatus() {
   int value = readAverage();
-  Serial.printf("Raw Light Value: %d\n", value);
-
   if (value < 40) {
     return 0;
   } else if (value < 800) {
@@ -55,7 +53,6 @@ int LightSensor::getLightStatus() {
 
 String LightSensor::printLightStatus() {
   int status = getLightStatus();
-  Serial.printf("Light Status Code: %d\n", status);
   switch (status) {
     case 0:
       return "Dark";
