@@ -14,8 +14,31 @@ int LightSensor::readRaw() {
   return analogRead(_pin);
 }
 
+int LightSensor::readAverage() {
+  long sum = 0;
+  
+  // Serial.println("--- START SAMPLING ---");
+  
+  // Take 20 samples
+  for (int i = 0; i < 20; i++) {
+    int val = readRaw();
+    
+    // Serial.printf("Sample %d: %d\n", i, val); 
+    
+    sum += val; 
+    delay(5); 
+  }
+
+  long avg = sum / 20;
+  
+  // Serial.printf("--- CALCULATION: %ld / 20 = %d ---\n", sum, avg);
+  
+  return avg;
+}
+
 int LightSensor::getLightStatus() {
-  int value = readRaw();
+  int value = readAverage();
+  Serial.printf("Raw Light Value: %d\n", value);
 
   if (value < 40) {
     return 0;
@@ -32,6 +55,7 @@ int LightSensor::getLightStatus() {
 
 String LightSensor::printLightStatus() {
   int status = getLightStatus();
+  Serial.printf("Light Status Code: %d\n", status);
   switch (status) {
     case 0:
       return "Dark";
@@ -46,16 +70,4 @@ String LightSensor::printLightStatus() {
     default:
       return "Unknown";
   }
-}
-
-int LightSensor::readAverage() {
-  long sum = 0;
-  
-  // Take 20 samples
-  for (int i = 0; i < 20; i++) {
-    sum += readRaw(); 
-    delay(5); // Wait 5ms to let the voltage stabilize
-  }
-
-  return sum / 20;
 }
