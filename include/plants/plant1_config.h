@@ -5,8 +5,8 @@
 #define PLANT_NAME "Plant 1 (Living Room)"
 
 // Sensor Pins
-#define MOISTURE_PIN 4
-#define LIGHT_SENSOR_PIN 13 
+#define MOISTURE_PIN 34
+#define LIGHT_SENSOR_PIN 35
 
 // Actuator Pins
 #define PUMP_PIN 12
@@ -20,7 +20,7 @@
 
 // --- THRESHOLDS ---
 #define MOISTURE_THRESHOLD_PERCENT 30 // Water below 30%
-#define LIGHT_THRESHOLD_LEVEL 3 // Turn on light if level <= 3
+#define LIGHT_THRESHOLD_LEVEL 2 // Turn on light if level <= 3
 
 // --- TIMING (in Milliseconds) ---
 #define PUMP_DURATION_MS 3 * 1000 // Water for 3 seconds

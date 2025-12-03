@@ -6,7 +6,9 @@
 // #include "plants/Plant3_Config.h"
 
 // Global Settings 
-#define WIFI_SSID "Blakcberry"
-#define WIFI_PASS "Ricky0100"
+#define FIREBASE_API_KEY "AIzaSyAoUInnpxkWkLnkLTI18t7BGXFgapRXAow"
+#define FIREBASE_DB_URL "esp32-plant-care-default-rtdb.firebaseio.com"
+#define WIFI_SSID "Blackberry"
+#define WIFI_PASS "ricky0100"
 
 #endif

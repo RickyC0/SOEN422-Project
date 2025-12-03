@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Care Dashboard</title>
+    <style>
+        body { background: #121212; color: white; font-family: sans-serif; text-align: center; }
+        .card { background: #1e1e1e; margin: 20px auto; padding: 20px; width: 300px; border-radius: 10px; }
+        h2 { color: #03dac6; }
+        .value { font-size: 2em; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>My Plant Swarm</h1>
+
+    <div class="card">
+        <h2>Plant 1</h2>
+        <p>Moisture: <span id="p1-moist" class="value">--</span>%</p>
+        <p>Light: <span id="p1-light">--</span></p>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs
+        import { initializeApp } from "firebase/app";
+        import { getDatabase, ref, onValue } from "firebase/database";
+
+        // --- PASTE YOUR CONFIG HERE ---
+        const firebaseConfig = {
+        apiKey: "AIzaSyAoUInnpxkWkLnkLTI18t7BGXFgapRXAow",
+        authDomain: "esp32-plant-care.firebaseapp.com",
+        databaseURL: "https://esp32-plant-care-default-rtdb.firebaseio.com",
+        projectId: "esp32-plant-care",
+        storageBucket: "esp32-plant-care.firebasestorage.app",
+        messagingSenderId: "751775175230",
+        appId: "1:751775175230:web:90a308849a5a1883f5f76f"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // --- LISTEN FOR DATA ---
+        // This runs automatically whenever the ESP32 updates the database
+        const plant1Ref = ref(db, 'plants/plant1');
+        
+        onValue(plant1Ref, (snapshot) => {
+            const data = snapshot.val();
+            if(data) {
+                document.getElementById('p1-moist').innerText = data.moisture;
+                document.getElementById('p1-light').innerText = (data.lightStatus <= 3) ? "Dark (Lights ON)" : "Bright";
+            }
+        });
+    </script>
+</body>
+</html>

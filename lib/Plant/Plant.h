@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include "DebugMacros.h"
+#include "SystemConfig.h"
 
 #include "Pump.h"
 #include "MoistureSensor.h"
@@ -53,6 +54,14 @@ class Plant {
     void update();
     void manageWatering(unsigned long now);
     void manageLighting(unsigned long now);
+
+    // --- GETTERS FOR WEBSITE ---
+    // These allow the website to peek at private variables
+    int getMoisturePercent() { return _moisture.getPercentage(); }
+    int getLightStatus() { return _lightSensor.getLightStatus(); }
+    bool isPumpRunning() { return (_waterState == W_PUMPING); }
+    bool isLightOn() { return _lightingActive; }
+    String getPlantName() { return PLANT_NAME; }
 };
 
 #endif
