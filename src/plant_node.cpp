@@ -60,4 +60,20 @@ void loop() {
             myPlant.isLightOn()
         );
     }
+
+    bool runPump = false;
+    bool toggleLight = false;
+
+    cloud.checkCommands(runPump, toggleLight);
+
+        if (runPump) {
+            // Force the pump on manually
+            // You might need to add a public "forcePump()" method to your Plant class
+            myPlant.manualPumpTrigger(); 
+        }
+
+        if (toggleLight) {
+            // Force light toggle
+            myPlant.manualLightToggle();
+        }
 }

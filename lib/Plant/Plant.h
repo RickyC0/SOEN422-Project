@@ -54,6 +54,8 @@ class Plant {
     void update();
     void manageWatering(unsigned long now);
     void manageLighting(unsigned long now);
+    void manualPumpTrigger();
+    void manualLightToggle();
 
     // --- GETTERS FOR WEBSITE ---
     // These allow the website to peek at private variables

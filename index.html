@@ -103,6 +103,30 @@
             }
         });
 
+        const actuatorsHTML = `
+            <div style="margin-top:20px; display:flex; flex-direction:column; gap:10px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; background:#2a2a2a; padding:10px; border-radius:8px;">
+                    <div style="text-align:left;">
+                        <div class="label" style="font-size:0.9rem; margin:0;">Pump</div>
+                        <span id="${id}-pump" class="status off">OFF</span>
+                    </div>
+                    <button onclick="togglePump('${id}')" style="background:#03dac6; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; font-weight:bold;">
+                        WATER PLANT
+                    </button>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; background:#2a2a2a; padding:10px; border-radius:8px;">
+                    <div style="text-align:left;">
+                        <div class="label" style="font-size:0.9rem; margin:0;">Grow Light</div>
+                        <span id="${id}-led" class="status off">OFF</span>
+                    </div>
+                    <button onclick="toggleLight('${id}')" style="background:#ffb74d; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; font-weight:bold;">
+                        TOGGLE LIGHT
+                    </button>
+                </div>
+            </div>
+        `;
+
         function updatePlantCard(id, data) {
             // Check if a card for this plant already exists
             let card = document.getElementById(id);
@@ -115,27 +139,7 @@
 
                 const imgUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/plant_photos%2F${id}.jpg?alt=media`;
                 
-                card.innerHTML = `
-                    <div class="label" style="color:#03dac6; font-weight:bold; margin-bottom:15px; text-transform:uppercase;">
-                        Plant ${id}
-                    </div>
-                    
-                    <img id="${id}-cam" src="${imgUrl}" class="cam-feed" alt="Waiting for Camera...">
-
-                    <div class="label">Soil Moisture</div>
-                    <div id="${id}-moist-val" class="value">--%</div>
-                    <div id="${id}-moist-status" class="status">Loading...</div>
-                    
-                    <hr style="border-color:#333; margin: 15px 0;">
-
-                    <div class="label">Light Level</div>
-                    <div id="${id}-light-val" class="value">--</div>
-                    
-                    <div style="margin-top:15px; text-align:left;">
-                        <p>Pump: <span id="${id}-pump" class="status off">OFF</span></p>
-                        <p>Light: <span id="${id}-led" class="status off">OFF</span></p>
-                    </div>
-                `;
+                card.innerHTML = actuatorsHTML.replace(/\${id}/g, id);
                 
                 // Add to the main container
                 document.getElementById('swarm-container').appendChild(card);
@@ -178,4 +182,24 @@
         }
     </script>
 </body>
+
+<script>
+    import { update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+    window.togglePump = function(plantId) {
+        console.log("Triggering Pump for", plantId);
+        // Write "true" to the specific command path
+        const updates = {};
+        updates[`plants/${plantId}/commands/pump`] = true;
+        update(ref(db), updates);
+    };
+
+    window.toggleLight = function(plantId) {
+        console.log("Toggling Light for", plantId);
+        // We send a "toggle" command. The ESP32 will handle the logic.
+        const updates = {};
+        updates[`plants/${plantId}/commands/lightToggle`] = true;
+        update(ref(db), updates);
+    };
+</script>
 </html>

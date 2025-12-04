@@ -18,6 +18,7 @@ class FirebaseManager {
     FirebaseManager(String plantId);
     void begin();
     void sendData(int moisture, int lightStatus, bool pumpOn, bool lightOn);
+    void checkCommands(bool &pumpCmd, bool &lightCmd);
 };
 
 #endif

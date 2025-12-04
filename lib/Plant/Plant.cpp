@@ -165,3 +165,25 @@ void Plant::manageLighting(unsigned long now) {
         }
     }
 }
+
+void Plant::manualPumpTrigger() {
+    LOG(">> Manual Pump Triggered via Web!");
+    _pump.turnOn();
+    _waterTimer = millis(); 
+    _waterState = W_PUMPING;
+}
+
+void Plant::manualLightToggle() {
+    LOG(">> Manual Light Toggle via Web!");
+    _lightingActive = !_lightingActive; // Flip state
+    
+    if (_lightingActive) {
+        analogWrite(_pinRed, 255);
+        analogWrite(_pinGreen, 255);
+        analogWrite(_pinBlue, 255);
+    } else {
+        analogWrite(_pinRed, 0);
+        analogWrite(_pinGreen, 0);
+        analogWrite(_pinBlue, 0);
+    }
+}
