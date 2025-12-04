@@ -29,23 +29,32 @@ FirebaseManager cloud("plant1");
 
 unsigned long lastUploadTime = 0;
 
+void initWiFi() {
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+  Serial.print("Connecting to Wi-Fi");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(500);
+  }
+  Serial.println("\nWi-Fi Connected!");
+}
+
 void setup() {
     Serial.begin(115200);
     
     // Connect to Wi-Fi FIRST
-    Serial.print("Connecting to Wi-Fi");
-    WiFi.begin(WIFI_SSID, WIFI_PASS);
-    while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        Serial.print(".");
-    }
-    Serial.println(" Connected!");
+    initWiFi();
 
     myPlant.begin();
     cloud.begin();
 }
 
 void loop() {
+    // Reconnect Wi-Fi if disconnected at anytime during runtime
+    if (WiFi.status() != WL_CONNECTED) {
+        initWiFi();
+    }
+
     myPlant.update();
 
     // --- CLOUD UPLOAD (Every 5 Seconds) ---

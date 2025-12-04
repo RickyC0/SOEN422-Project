@@ -100,28 +100,33 @@ void setup() {
 }
 
 void loop() {
-  if (Firebase.ready()) {
-    Serial.println("Taking Picture...");
-    
-    camera_fb_t * fb = esp_camera_fb_get();
-    if (!fb) {
-      Serial.println("Camera Capture Failed");
-      return;
+    // Reconnect Wi-Fi if disconnected at anytime during runtime
+    if (WiFi.status() != WL_CONNECTED) {
+        initWiFi();
     }
 
-    Serial.printf("Picture taken! Size: %d bytes. Uploading...\n", fb->len);
+    if (Firebase.ready()) {
+        Serial.println("Taking Picture...");
 
-    // Upload using STORAGE_BUCKET_ID from SystemConfig.h
-    if (Firebase.Storage.upload(&fbdo, STORAGE_BUCKET_ID_WEB, fb->buf, fb->len, "plant_photos/plant1.jpg", "image/jpeg")) {
-        Serial.println(">> Upload Success!");
-    } else {
-        Serial.printf(">> Upload Failed: %s\n", fbdo.errorReason().c_str());
+        camera_fb_t * fb = esp_camera_fb_get();
+        if (!fb) {
+            Serial.println("Camera Capture Failed");
+            return;
+        }
+
+        Serial.printf("Picture taken! Size: %d bytes. Uploading...\n", fb->len);
+
+        // Upload using STORAGE_BUCKET_ID from SystemConfig.h
+        if (Firebase.Storage.upload(&fbdo, STORAGE_BUCKET_ID_WEB, fb->buf, fb->len, "plant_photos/plant1.jpg", "image/jpeg")) {
+            Serial.println(">> Upload Success!");
+        } else {
+            Serial.printf(">> Upload Failed: %s\n", fbdo.errorReason().c_str());
+        }
+
+        esp_camera_fb_return(fb);
+
+        // Wait 1 minute
+        Serial.println("Sleeping for 1 minute...");
+        delay(1 * 60 * 1000); 
     }
-
-    esp_camera_fb_return(fb);
-    
-    // Wait 1 minute
-    Serial.println("Sleeping for 1 minute...");
-    delay(1 * 60 * 1000); 
-  }
 }
