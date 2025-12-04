@@ -4,24 +4,8 @@
 #include <addons/TokenHelper.h>
 #include "esp_camera.h"
 #include "SystemConfig.h"
+#include "DebugMacros.h"
 
-// --- FREENOVE WROVER PINOUT ---
-#define PWDN_GPIO_NUM    -1
-#define RESET_GPIO_NUM   -1
-#define XCLK_GPIO_NUM    21
-#define SIOD_GPIO_NUM    26
-#define SIOC_GPIO_NUM    27
-#define Y9_GPIO_NUM      35
-#define Y8_GPIO_NUM      34
-#define Y7_GPIO_NUM      39
-#define Y6_GPIO_NUM      36
-#define Y5_GPIO_NUM      19
-#define Y4_GPIO_NUM      18
-#define Y3_GPIO_NUM       5
-#define Y2_GPIO_NUM       4
-#define VSYNC_GPIO_NUM   25
-#define HREF_GPIO_NUM    23
-#define PCLK_GPIO_NUM    22
 // Objects
 FirebaseData fbdo;
 FirebaseAuth auth;
@@ -62,7 +46,7 @@ void initCamera() {
   }
 
   if (esp_camera_init(&config) != ESP_OK) {
-    Serial.println("Camera Init Failed!");
+   LOG("Camera Init Failed!");
     return;
   }
 }
@@ -72,9 +56,9 @@ void initWiFi() {
   Serial.print("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
-    delay(500);
+    delay(WIFI_DELAY_MS);
   }
-  Serial.println("\nWi-Fi Connected!");
+ LOG("\nWi-Fi Connected!");
 }
 
 void initFirebase() {
@@ -85,14 +69,14 @@ void initFirebase() {
   config.signer.test_mode = true; 
   
   // Set the timeout longer for slow photo uploads
-  config.timeout.serverResponse = 10 * 1000; 
+  config.timeout.serverResponse = SERVER_PICTURE_RESPONSE_TIMEOUT_MS; 
 
   Firebase.begin(&config, &auth);
   Firebase.reconnectWiFi(true);
 }
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(SERIAL_BAUD_RATE);
   
   initCamera();
   initWiFi();
@@ -106,11 +90,11 @@ void loop() {
     }
 
     if (Firebase.ready()) {
-        Serial.println("Taking Picture...");
+       LOG("Taking Picture...");
 
         camera_fb_t * fb = esp_camera_fb_get();
         if (!fb) {
-            Serial.println("Camera Capture Failed");
+           LOG("Camera Capture Failed");
             return;
         }
 
@@ -118,7 +102,7 @@ void loop() {
 
         // Upload using STORAGE_BUCKET_ID from SystemConfig.h
         if (Firebase.Storage.upload(&fbdo, STORAGE_BUCKET_ID_WEB, fb->buf, fb->len, "plant_photos/plant1.jpg", "image/jpeg")) {
-            Serial.println(">> Upload Success!");
+           LOG(">> Upload Success!");
         } else {
             Serial.printf(">> Upload Failed: %s\n", fbdo.errorReason().c_str());
         }
@@ -126,7 +110,7 @@ void loop() {
         esp_camera_fb_return(fb);
 
         // Wait 1 minute
-        Serial.println("Sleeping for 1 minute...");
-        delay(1 * 60 * 1000); 
+       LOG(f"Sleeping for 1 minute...");
+        delay(CAMERA_UPLOAD_INTERVAL_MS); 
     }
 }

@@ -57,6 +57,12 @@ void Plant::update() {
     manageLighting(now);
 }
 
+void Plant::manageRGB(int r, int g, int b) {
+    analogWrite(_pinRed, r);
+    analogWrite(_pinGreen, g);
+    analogWrite(_pinBlue, b);
+}
+
 void Plant::manageWatering(unsigned long now) {
     switch (_waterState) {
         case W_IDLE:
@@ -110,9 +116,7 @@ void Plant::manageLighting(unsigned long now) {
 
             if (lightLevel <= _lightThreshold) {
                 LOG(">> It is Dark (Level %d <= %d). Lights ON.", lightLevel, _lightThreshold);
-                analogWrite(_pinRed, 255);
-                analogWrite(_pinGreen, 255);
-                analogWrite(_pinBlue, 255);
+                
                 _lightingActive = true;
             } else {
                 LOG(">> It is Bright (Level %d > %d). Lights OFF.", lightLevel, _lightThreshold);
@@ -137,9 +141,8 @@ void Plant::manageLighting(unsigned long now) {
         // Scenario A: Lights are ON. We must pause.
         if (_lightingActive) {
             LOG(">> Lights are ON. Turning OFF briefly to peek...");
-            analogWrite(_pinRed, 0);
-            analogWrite(_pinGreen, 0);
-            analogWrite(_pinBlue, 0);
+            // Turn off lights to read ambient
+            manageRGB(0, 0, 0);
             
             _isPeekingLight = true;
             _peekLightTimer = now; 
@@ -152,9 +155,8 @@ void Plant::manageLighting(unsigned long now) {
 
             if (lightLevel <= _lightThreshold) {
                 LOG(">> Too Dark. Turning Lights ON.");
-                analogWrite(_pinRed, 255);
-                analogWrite(_pinGreen, 255);
-                analogWrite(_pinBlue, 255);
+                manageRGB(255, 255, 255);
+
                 _lightingActive = true;
             }
             else {
@@ -178,12 +180,8 @@ void Plant::manualLightToggle() {
     _lightingActive = !_lightingActive; // Flip state
     
     if (_lightingActive) {
-        analogWrite(_pinRed, 255);
-        analogWrite(_pinGreen, 255);
-        analogWrite(_pinBlue, 255);
+        manageRGB(255, 255, 255);
     } else {
-        analogWrite(_pinRed, 0);
-        analogWrite(_pinGreen, 0);
-        analogWrite(_pinBlue, 0);
+        manageRGB(0, 0, 0);
     }
 }

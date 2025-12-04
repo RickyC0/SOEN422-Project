@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "FirebaseManager.h"
 #include "WiFi.h"
+#include "DebugMacros.h"
 
 #include "SystemConfig.h" 
 #include "Plant.h"
@@ -34,13 +35,13 @@ void initWiFi() {
   Serial.print("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
-    delay(500);
+    delay(WIFI_DELAY_MS);
   }
-  Serial.println("\nWi-Fi Connected!");
+ LOG("\nWi-Fi Connected!");
 }
 
 void setup() {
-    Serial.begin(115200);
+    Serial.begin(SERIAL_BAUD_RATE);
     
     // Connect to Wi-Fi FIRST
     initWiFi();
@@ -57,8 +58,8 @@ void loop() {
 
     myPlant.update();
 
-    // --- CLOUD UPLOAD (Every 5 Seconds) ---
-    if (millis() - lastUploadTime > 5000) {
+    // --- CLOUD UPLOAD (Every UPLOAD_TIMER Seconds) ---
+    if (millis() - lastUploadTime > UPLOAD_TIMER) {
         lastUploadTime = millis();
 
         // Gather data from the Plant getters
