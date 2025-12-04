@@ -8,6 +8,8 @@
 // Global Settings 
 #define FIREBASE_API_KEY "AIzaSyAoUInnpxkWkLnkLTI18t7BGXFgapRXAow"
 #define FIREBASE_DB_URL "esp32-plant-care-default-rtdb.firebaseio.com"
+#define STORAGE_BUCKET_ID_WEB "esp32-plant-care.firebasestorage.app"
+
 #define WIFI_SSID "Blackberry"
 #define WIFI_PASS "ricky0100"
 
