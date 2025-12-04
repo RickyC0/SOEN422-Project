@@ -72,10 +72,12 @@ void Plant::manageWatering(unsigned long now) {
                 int currentMoist = _moisture.getPercentage();
                 LOG("----------------------------------------");
                 LOG("[SOIL CHECK] Level: %d%% (Threshold: %d%%)", currentMoist, _moistThreshold);
+                LOG("----------------------------------------");
+
 
                 if (currentMoist < _moistThreshold) {
-                    LOG(">> !!! THIRSTY DETECTED !!! <<");
-                    LOG(">> Starting Pump for %lu ms.", _pumpDuration);
+                    LOG("   >> !!! THIRSTY DETECTED !!! <<");
+                    LOG("   >> Starting Pump for %lu ms.", _pumpDuration);
                     _pump.turnOn();
                     _waterTimer = now; 
                     _waterState = W_PUMPING;
@@ -85,8 +87,8 @@ void Plant::manageWatering(unsigned long now) {
 
         case W_PUMPING:
             if (now - _waterTimer > _pumpDuration) {
-                LOG(">> Watering Complete. Pump OFF.");
-                LOG(">> Entering Cooldown.");
+                LOG("   >> Watering Complete. Pump OFF.");
+                LOG("   >> Entering Cooldown.");
                 _pump.turnOff();
                 _waterTimer = now; 
                 _waterState = W_COOLDOWN;
@@ -95,7 +97,7 @@ void Plant::manageWatering(unsigned long now) {
 
         case W_COOLDOWN:
             if (now - _waterTimer > _pumpCooldown) {
-                LOG(">> Cooldown finished. Resuming monitoring.");
+                LOG("   >> Cooldown finished. Resuming monitoring.");
                 _waterState = W_IDLE;
             }
             break;
@@ -112,14 +114,14 @@ void Plant::manageLighting(unsigned long now) {
             // Time is up! Read sensor
             int lightLevel = _lightSensor.getLightStatus();
             
-            LOG(">> Peek Complete. Ambient Light Level: %d", lightLevel);
+            LOG("   >> Peek Complete. Ambient Light Level: %d", lightLevel);
 
             if (lightLevel <= _lightThreshold) {
-                LOG(">> It is Dark (Level %d <= %d). Lights ON.", lightLevel, _lightThreshold);
+                LOG("   >> It is Dark (Level %d <= %d). Lights ON.", lightLevel, _lightThreshold);
                 
                 _lightingActive = true;
             } else {
-                LOG(">> It is Bright (Level %d > %d). Lights OFF.", lightLevel, _lightThreshold);
+                LOG("   >> It is Bright (Level %d > %d). Lights OFF.", lightLevel, _lightThreshold);
                 // Keep them off
                 _lightingActive = false;
             }
@@ -137,10 +139,12 @@ void Plant::manageLighting(unsigned long now) {
         
         LOG("----------------------------------------");
         LOG("[LIGHT CHECK] Time to check light...");
+        LOG("----------------------------------------");
+
 
         // Scenario A: Lights are ON. We must pause.
         if (_lightingActive) {
-            LOG(">> Lights are ON. Turning OFF briefly to peek...");
+            LOG("   >> Lights are ON. Turning OFF briefly to peek...");
             // Turn off lights to read ambient
             manageRGB(0, 0, 0);
             
@@ -154,7 +158,7 @@ void Plant::manageLighting(unsigned long now) {
             LOG("[LIGHT CHECK] Lights are OFF. Current Level: %d", lightLevel);
 
             if (lightLevel <= _lightThreshold) {
-                LOG(">> Too Dark. Turning Lights ON.");
+                LOG("   >> Too Dark. Turning Lights ON.");
                 manageRGB(255, 255, 255);
 
                 _lightingActive = true;
@@ -169,14 +173,14 @@ void Plant::manageLighting(unsigned long now) {
 }
 
 void Plant::manualPumpTrigger() {
-    LOG(">> Manual Pump Triggered via Web!");
+    LOG("   >> Manual Pump Triggered via Web!");
     _pump.turnOn();
     _waterTimer = millis(); 
     _waterState = W_PUMPING;
 }
 
 void Plant::manualLightToggle() {
-    LOG(">> Manual Light Toggle via Web!");
+    LOG("   >> Manual Light Toggle via Web!");
     _lightingActive = !_lightingActive; // Flip state
     
     if (_lightingActive) {

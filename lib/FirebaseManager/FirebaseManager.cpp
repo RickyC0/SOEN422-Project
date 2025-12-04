@@ -65,9 +65,9 @@ void FirebaseManager::sendData(int moisture, int lightStatus, bool pumpOn, bool 
     
     // Use the arrow -> for pointers
     if (Firebase.RTDB.updateNode(_fbdo, _plantPath.c_str(), &json)) {
-        LOG(">> Data Sent Successfully");
+        LOG("   >> Data Sent Successfully");
     } else {
-        LOG(">> Push Failed: %s", _fbdo->errorReason().c_str());
+        LOG("   >> Push Failed: %s", _fbdo->errorReason().c_str());
     }
 }
 
@@ -79,7 +79,7 @@ void FirebaseManager::checkCommands(bool &pumpCmd, bool &lightCmd) {
     String pumpPath = _plantPath + "/commands/pump";
     if (Firebase.RTDB.getBool(_fbdo, pumpPath)) {
         if (_fbdo->boolData() == true) {
-            LOG(">> COMMAND RECEIVED: Run Pump");
+            LOG("   >> COMMAND RECEIVED: Run Pump");
             pumpCmd = true;
             // IMMEDIATELY reset the command to false so it doesn't run forever!
             Firebase.RTDB.setBool(_fbdo, pumpPath, false); 
@@ -90,7 +90,7 @@ void FirebaseManager::checkCommands(bool &pumpCmd, bool &lightCmd) {
     String lightPath = _plantPath + "/commands/lightToggle";
     if (Firebase.RTDB.getBool(_fbdo, lightPath)) {
         if (_fbdo->boolData() == true) {
-            LOG(">> COMMAND RECEIVED: Toggle Light");
+            LOG("   >> COMMAND RECEIVED: Toggle Light");
             lightCmd = true;
             Firebase.RTDB.setBool(_fbdo, lightPath, false); // Reset trigger
         }

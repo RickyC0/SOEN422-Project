@@ -53,9 +53,9 @@ void initCamera() {
 
 void initWiFi() {
   WiFi.begin(WIFI_SSID, WIFI_PASS);
-  Serial.print("Connecting to Wi-Fi");
+  LOG("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
+    LOG(".");
     delay(WIFI_DELAY_MS);
   }
  LOG("\nWi-Fi Connected!");
@@ -110,7 +110,7 @@ void loop() {
         esp_camera_fb_return(fb);
 
         // Wait 1 minute
-       LOG(f"Sleeping for 1 minute...");
+       LOG("Sleeping for 1 minute...");
         delay(CAMERA_UPLOAD_INTERVAL_MS); 
     }
 }

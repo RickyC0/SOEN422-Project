@@ -32,9 +32,9 @@ unsigned long lastUploadTime = 0;
 
 void initWiFi() {
   WiFi.begin(WIFI_SSID, WIFI_PASS);
-  Serial.print("Connecting to Wi-Fi");
+  LOG("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
+    LOG(".");
     delay(WIFI_DELAY_MS);
   }
  LOG("\nWi-Fi Connected!");
