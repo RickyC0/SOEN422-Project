@@ -1,0 +1,97 @@
+\doxysection{src/camera\+\_\+node.cpp File Reference}
+\hypertarget{camera__node_8cpp}{}\label{camera__node_8cpp}\index{src/camera\_node.cpp@{src/camera\_node.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$Firebase\+\_\+\+ESP\+\_\+\+Client.\+h$>$}\newline
+{\ttfamily \#include $<$addons/\+Token\+Helper.\+h$>$}\newline
+{\ttfamily \#include "{}esp\+\_\+camera.\+h"{}}\newline
+{\ttfamily \#include "{}System\+Config.\+h"{}}\newline
+{\ttfamily \#include "{}Debug\+Macros.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{camera__node_8cpp_a82b306b22d5a39f12828a75214c4e88a}{init\+Camera}} ()
+\item 
+void \mbox{\hyperlink{camera__node_8cpp_abf4d12a26fa69fa1dd75d6cac9c0f740}{init\+Wi\+Fi}} ()
+\item 
+void \mbox{\hyperlink{camera__node_8cpp_a9207ddd77668fd375eeb2094db9dd417}{init\+Firebase}} ()
+\item 
+void \mbox{\hyperlink{camera__node_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{camera__node_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Firebase\+Data \mbox{\hyperlink{camera__node_8cpp_a12b59da3012cde0aab1fa623b4e46c55}{fbdo}}
+\item 
+Firebase\+Auth \mbox{\hyperlink{camera__node_8cpp_aecbaea371d434c4a1e67568844435de6}{auth}}
+\item 
+Firebase\+Config \mbox{\hyperlink{camera__node_8cpp_a5ad753240216beef4b6f05ce546268e3}{config}}
+\item 
+bool \mbox{\hyperlink{camera__node_8cpp_ac542c876ea54085aa0173a9cd1e3251c}{wifi\+Connected}} = false
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{camera__node_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{camera__node_8cpp_a82b306b22d5a39f12828a75214c4e88a}\index{camera\_node.cpp@{camera\_node.cpp}!initCamera@{initCamera}}
+\index{initCamera@{initCamera}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{initCamera()}{initCamera()}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_a82b306b22d5a39f12828a75214c4e88a} 
+void init\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{camera__node_8cpp_a9207ddd77668fd375eeb2094db9dd417}\index{camera\_node.cpp@{camera\_node.cpp}!initFirebase@{initFirebase}}
+\index{initFirebase@{initFirebase}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{initFirebase()}{initFirebase()}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_a9207ddd77668fd375eeb2094db9dd417} 
+void init\+Firebase (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{camera__node_8cpp_abf4d12a26fa69fa1dd75d6cac9c0f740}\index{camera\_node.cpp@{camera\_node.cpp}!initWiFi@{initWiFi}}
+\index{initWiFi@{initWiFi}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{initWiFi()}{initWiFi()}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_abf4d12a26fa69fa1dd75d6cac9c0f740} 
+void init\+Wi\+Fi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{camera__node_8cpp_afe461d27b9c48d5921c00d521181f12f}\index{camera\_node.cpp@{camera\_node.cpp}!loop@{loop}}
+\index{loop@{loop}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{camera__node_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{camera\_node.cpp@{camera\_node.cpp}!setup@{setup}}
+\index{setup@{setup}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{camera__node_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{camera__node_8cpp_aecbaea371d434c4a1e67568844435de6}\index{camera\_node.cpp@{camera\_node.cpp}!auth@{auth}}
+\index{auth@{auth}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{auth}{auth}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_aecbaea371d434c4a1e67568844435de6} 
+Firebase\+Auth auth}
+
+\Hypertarget{camera__node_8cpp_a5ad753240216beef4b6f05ce546268e3}\index{camera\_node.cpp@{camera\_node.cpp}!config@{config}}
+\index{config@{config}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_a5ad753240216beef4b6f05ce546268e3} 
+Firebase\+Config config}
+
+\Hypertarget{camera__node_8cpp_a12b59da3012cde0aab1fa623b4e46c55}\index{camera\_node.cpp@{camera\_node.cpp}!fbdo@{fbdo}}
+\index{fbdo@{fbdo}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{fbdo}{fbdo}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_a12b59da3012cde0aab1fa623b4e46c55} 
+Firebase\+Data fbdo}
+
+\Hypertarget{camera__node_8cpp_ac542c876ea54085aa0173a9cd1e3251c}\index{camera\_node.cpp@{camera\_node.cpp}!wifiConnected@{wifiConnected}}
+\index{wifiConnected@{wifiConnected}!camera\_node.cpp@{camera\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{wifiConnected}{wifiConnected}}
+{\footnotesize\ttfamily \label{camera__node_8cpp_ac542c876ea54085aa0173a9cd1e3251c} 
+bool wifi\+Connected = false}
+

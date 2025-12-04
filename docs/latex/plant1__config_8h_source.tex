@@ -1,0 +1,68 @@
+\doxysection{plant1\+\_\+config.\+h}
+\hypertarget{plant1__config_8h_source}{}\label{plant1__config_8h_source}\index{include/plants/plant1\_config.h@{include/plants/plant1\_config.h}}
+\mbox{\hyperlink{plant1__config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLANT1\_CONFIG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLANT1\_CONFIG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ -\/-\/-\/\ IDENTITY\ -\/-\/-\/}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ PLANT\_NAME\ "{}Plant\ 1\ (Living\ Room)"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ -\/-\/-\/\ SENSOR\ PINS\ -\/-\/-\/}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ MOISTURE\_PIN\ 34\ \ \ \ \ }\textcolor{comment}{//\ Input\ Only\ pin\ (Safe)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ LIGHT\_SENSOR\_PIN\ 35\ }\textcolor{comment}{//\ Input\ Only\ pin\ (Safe)}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ -\/-\/-\/\ ACTUATOR\ PINS\ -\/-\/-\/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ PUMP\_PIN\ 12}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ RGB\_RED\_PIN\ 18}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ RGB\_GREEN\_PIN\ 23}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ RGB\_BLUE\_PIN\ 19}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ -\/-\/-\/\ SERIAL\ COMMUNICATION\ -\/-\/-\/}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ SERIAL\_BAUD\_RATE\ 115200}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ -\/-\/-\/\ SENSOR\ CALIBRATION\ -\/-\/-\/}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ MOISTURE\_DRY\ 4095\ }\textcolor{comment}{//\ Maximum\ resistance\ (Air)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MOISTURE\_WET\ 500\ \ }\textcolor{comment}{//\ Minimum\ resistance\ (Submerged)}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ -\/-\/-\/\ LOGIC\ THRESHOLDS\ -\/-\/-\/}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ MOISTURE\_THRESHOLD\_PERCENT\ 30\ }\textcolor{comment}{//\ If\ moisture\ <\ 30\%,\ pump\ activates}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ LIGHT\_THRESHOLD\_LEVEL\ 2\ \ \ \ \ \ \ }\textcolor{comment}{//\ If\ Status\ <=\ 2\ (Normal/Dim),\ grow\ light\ activates}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ -\/-\/-\/\ TIMING\ CONFIGURATION\ -\/-\/-\/}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ PUMP\_DURATION\_MS\ 3\ *\ 1000\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Run\ pump\ for\ 3\ seconds\ per\ watering\ event}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ WATERING\_COOLDOWN\_MS\ 1\ *\ 1000\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Wait\ before\ allowing\ another\ watering\ (Demo:\ 1s\ /\ Real:\ 3600000)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ MOISTURE\_CHECK\_INTERVAL\_MS\ 30\ *\ 1000\ }\textcolor{comment}{//\ How\ often\ to\ read\ soil\ sensor}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ LIGHT\_CHECK\_INTERVAL\_MS\ 30\ *\ 1000\ \ \ \ }\textcolor{comment}{//\ How\ often\ to\ read\ light\ sensor}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ LIGHT\_PAUSE\_INTERVAL\_MS\ 2\ *\ 1000\ \ \ \ \ }\textcolor{comment}{//\ "{}Peeking"{}\ duration:\ Turn\ off\ LED\ for\ 2s\ to\ measure\ ambient\ light}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ UPLOAD\_TIMER\ 5\ *\ 1000\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Push\ sensor\ data\ to\ Firebase\ every\ 5s}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ -\/-\/-\/\ WI-\/FI\ SETTINGS\ -\/-\/-\/}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ WIFI\_DELAY\_MS\ 500\ }\textcolor{comment}{//\ Wait\ time\ between\ connection\ attempts}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ -\/-\/-\/\ CAMERA\ HARDWARE\ (Freenove\ WROVER)\ -\/-\/-\/}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ PWDN\_GPIO\_NUM\ -\/1}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ RESET\_GPIO\_NUM\ -\/1}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ XCLK\_GPIO\_NUM\ 21}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ SIOD\_GPIO\_NUM\ 26}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ SIOC\_GPIO\_NUM\ 27}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ Y9\_GPIO\_NUM\ 35}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ Y8\_GPIO\_NUM\ 34}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ Y7\_GPIO\_NUM\ 39}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ Y6\_GPIO\_NUM\ 36}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ Y5\_GPIO\_NUM\ 19}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ Y4\_GPIO\_NUM\ 18}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ Y3\_GPIO\_NUM\ 5}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ Y2\_GPIO\_NUM\ 4}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ VSYNC\_GPIO\_NUM\ 25}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ HREF\_GPIO\_NUM\ 23}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ PCLK\_GPIO\_NUM\ 22}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ -\/-\/-\/\ FIREBASE\ SETTINGS\ -\/-\/-\/}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ SERVER\_PICTURE\_RESPONSE\_TIMEOUT\_MS\ 10\ *\ 1000\ }\textcolor{comment}{//\ Give\ server\ 10s\ to\ accept\ image}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ CAMERA\_UPLOAD\_INTERVAL\_MS\ 60\ *\ 1000\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Take\ photo\ every\ 60\ seconds}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLANT1\_CONFIG\_H}}
+
+\end{DoxyCode}

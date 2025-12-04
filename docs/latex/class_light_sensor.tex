@@ -1,0 +1,163 @@
+\doxysection{Light\+Sensor Class Reference}
+\hypertarget{class_light_sensor}{}\label{class_light_sensor}\index{LightSensor@{LightSensor}}
+
+
+Wrapper class for a Photoresistor (LDR) Sensor.  
+
+
+
+
+{\ttfamily \#include $<$Light\+Sensor.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_light_sensor_a9add6ef1b1b4ff5bf6bd2dc34b84cbbb}{Light\+Sensor}} (int pin)
+\begin{DoxyCompactList}\small\item\em Construct a new Light Sensor object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_light_sensor_a9976e94340f0c34b0139da3c60019a96}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Configures the hardware pin. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_light_sensor_aacd144ead52e0ada47e7642cf02e1cad}{read\+Raw}} ()
+\begin{DoxyCompactList}\small\item\em Reads a single instantaneous value from the sensor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_light_sensor_a77c9d4451e811f910a68bbeda061b650}{get\+Light\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Gets a simplified status code for the current light level. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{class_light_sensor_a92427283f5b472d6667fcc3fcb9bedbd}{print\+Light\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Gets a text description of the light level. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_light_sensor_af255ccaab725b5024ab8a138a16de158}{read\+Average}} ()
+\begin{DoxyCompactList}\small\item\em Takes multiple samples to filter out electrical noise. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_light_sensor_a27f49407f116c92f7df44a84a6048f82}{\+\_\+pin}}
+\begin{DoxyCompactList}\small\item\em The GPIO pin connected to the sensor\textquotesingle{}s Analog Output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class for a Photoresistor (LDR) Sensor. 
+
+Handles analog reading, noise smoothing (averaging), and mapping raw voltage to human-\/readable light levels. 
+
+\label{doc-constructors}
+\Hypertarget{class_light_sensor_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_light_sensor_a9add6ef1b1b4ff5bf6bd2dc34b84cbbb}\index{LightSensor@{LightSensor}!LightSensor@{LightSensor}}
+\index{LightSensor@{LightSensor}!LightSensor@{LightSensor}}
+\doxysubsubsection{\texorpdfstring{LightSensor()}{LightSensor()}}
+{\footnotesize\ttfamily \label{class_light_sensor_a9add6ef1b1b4ff5bf6bd2dc34b84cbbb} 
+Light\+Sensor\+::\+Light\+Sensor (\begin{DoxyParamCaption}\item[{int}]{pin}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new Light Sensor object. 
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em pin} & The ADC pin (e.\+g., 33, 34, 35) connected to the sensor. Note\+: Use ADC1 pins to avoid Wi-\/\+Fi conflicts. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_light_sensor_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_light_sensor_a9976e94340f0c34b0139da3c60019a96}\index{LightSensor@{LightSensor}!begin@{begin}}
+\index{begin@{begin}!LightSensor@{LightSensor}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_light_sensor_a9976e94340f0c34b0139da3c60019a96} 
+void Light\+Sensor\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configures the hardware pin. 
+
+Sets the pin to INPUT mode and configures ADC attenuation to read the full 3.\+3V range. \Hypertarget{class_light_sensor_a77c9d4451e811f910a68bbeda061b650}\index{LightSensor@{LightSensor}!getLightStatus@{getLightStatus}}
+\index{getLightStatus@{getLightStatus}!LightSensor@{LightSensor}}
+\doxysubsubsection{\texorpdfstring{getLightStatus()}{getLightStatus()}}
+{\footnotesize\ttfamily \label{class_light_sensor_a77c9d4451e811f910a68bbeda061b650} 
+int Light\+Sensor\+::get\+Light\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets a simplified status code for the current light level. 
+
+Uses \doxylink{class_light_sensor_af255ccaab725b5024ab8a138a16de158}{read\+Average()} internally for stability.
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+int Status Code\+: 0 = Dark 1 = Dim 2 = Normal 3 = Bright 4 = Very Bright 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_light_sensor_a92427283f5b472d6667fcc3fcb9bedbd}\index{LightSensor@{LightSensor}!printLightStatus@{printLightStatus}}
+\index{printLightStatus@{printLightStatus}!LightSensor@{LightSensor}}
+\doxysubsubsection{\texorpdfstring{printLightStatus()}{printLightStatus()}}
+{\footnotesize\ttfamily \label{class_light_sensor_a92427283f5b472d6667fcc3fcb9bedbd} 
+String Light\+Sensor\+::print\+Light\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets a text description of the light level. 
+
+Useful for printing to Serial or displaying on an OLED screen.
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+String e.\+g. "{}\+Dark"{}, "{}\+Normal"{}, "{}\+Very Bright"{} 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_light_sensor_af255ccaab725b5024ab8a138a16de158}\index{LightSensor@{LightSensor}!readAverage@{readAverage}}
+\index{readAverage@{readAverage}!LightSensor@{LightSensor}}
+\doxysubsubsection{\texorpdfstring{readAverage()}{readAverage()}}
+{\footnotesize\ttfamily \label{class_light_sensor_af255ccaab725b5024ab8a138a16de158} 
+int Light\+Sensor\+::read\+Average (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Takes multiple samples to filter out electrical noise. 
+
+
+\begin{DoxyItemize}
+\item \begin{DoxyWarning}{Warning}
+BLOCKING FUNCTION\+: This takes approx 100ms to complete (20 samples \texorpdfstring{$\ast$}{*} 5ms delay). Do not call this too frequently inside a high-\/speed loop.
+\end{DoxyWarning}
+
+\item \begin{DoxyReturn}{Returns}
+int The averaged raw value. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_light_sensor_aacd144ead52e0ada47e7642cf02e1cad}\index{LightSensor@{LightSensor}!readRaw@{readRaw}}
+\index{readRaw@{readRaw}!LightSensor@{LightSensor}}
+\doxysubsubsection{\texorpdfstring{readRaw()}{readRaw()}}
+{\footnotesize\ttfamily \label{class_light_sensor_aacd144ead52e0ada47e7642cf02e1cad} 
+int Light\+Sensor\+::read\+Raw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads a single instantaneous value from the sensor. 
+
+
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+int Raw ADC value (0 to 4095). 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+\label{doc-variable-members}
+\Hypertarget{class_light_sensor_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{class_light_sensor_a27f49407f116c92f7df44a84a6048f82}\index{LightSensor@{LightSensor}!\_pin@{\_pin}}
+\index{\_pin@{\_pin}!LightSensor@{LightSensor}}
+\doxysubsubsection{\texorpdfstring{\_pin}{\_pin}}
+{\footnotesize\ttfamily \label{class_light_sensor_a27f49407f116c92f7df44a84a6048f82} 
+int Light\+Sensor\+::\+\_\+pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The GPIO pin connected to the sensor\textquotesingle{}s Analog Output. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Light\+Sensor/\mbox{\hyperlink{_light_sensor_8h}{Light\+Sensor.\+h}}\item 
+lib/\+Light\+Sensor/\mbox{\hyperlink{_light_sensor_8cpp}{Light\+Sensor.\+cpp}}\end{DoxyCompactItemize}

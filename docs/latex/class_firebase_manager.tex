@@ -1,0 +1,201 @@
+\doxysection{Firebase\+Manager Class Reference}
+\hypertarget{class_firebase_manager}{}\label{class_firebase_manager}\index{FirebaseManager@{FirebaseManager}}
+
+
+Handles all Cloud Connectivity for the IoT \doxylink{class_plant}{Plant} System.  
+
+
+
+
+{\ttfamily \#include $<$Firebase\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_firebase_manager_a1dd6fee956656a7bcb43984302bd7ed3}{Firebase\+Manager}} (String plant\+Id)
+\begin{DoxyCompactList}\small\item\em Construct a new Firebase Manager object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_firebase_manager_a46b44784912cc27f313b34d3bea17bd8}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the Cloud Connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_firebase_manager_a49e9737c40a0a46e379fa69b2d5728e2}{send\+Data}} (int moisture, int light\+Status, bool pump\+On, bool light\+On)
+\begin{DoxyCompactList}\small\item\em Uploads a snapshot of the current system state to the Cloud. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_firebase_manager_a4ff2a8f7cae36ad3aab4c141435f923a}{check\+Commands}} (bool \&pump\+Cmd, bool \&light\+Cmd)
+\begin{DoxyCompactList}\small\item\em Checks the database for remote commands from the website. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Firebase\+Data \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_firebase_manager_a06b1a119fc31b7ade17febc15f04b5b1}{\+\_\+fbdo}}
+\begin{DoxyCompactList}\small\item\em The primary Firebase Data Object. \end{DoxyCompactList}\item 
+Firebase\+Auth \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_firebase_manager_a49a653063f7024a71bf3ca5f441b8b2c}{\+\_\+auth}}
+\begin{DoxyCompactList}\small\item\em Authentication Credentials. \end{DoxyCompactList}\item 
+Firebase\+Config \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_firebase_manager_a53adf848bd5c9aaddb834b0e42ab9312}{\+\_\+config}}
+\begin{DoxyCompactList}\small\item\em Configuration Object. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{class_firebase_manager_a44f741ec75bdac2796c8730fd78424da}{\+\_\+plant\+Path}}
+\begin{DoxyCompactList}\small\item\em The root database path for this specific device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_firebase_manager_a28e0d5e143bef7179467100f8b4e2183}{\+\_\+is\+Ready}}
+\begin{DoxyCompactList}\small\item\em Connection Status Flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles all Cloud Connectivity for the IoT \doxylink{class_plant}{Plant} System. 
+
+
+\begin{DoxyItemize}
+\item Responsibilities\+:
+\end{DoxyItemize}
+\begin{DoxyEnumerate}
+\item Managing Wi-\/\+Fi and Firebase Authentication.
+\item Pushing sensor telemetry (JSON) to the Realtime Database.
+\item Listening for remote commands (Pump/\+Light) from the Web Dashboard.
+\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item Note\+: Uses dynamic memory allocation (new/pointers) to prevent stack overflow crashes during ESP32 boot. 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_firebase_manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_firebase_manager_a1dd6fee956656a7bcb43984302bd7ed3}\index{FirebaseManager@{FirebaseManager}!FirebaseManager@{FirebaseManager}}
+\index{FirebaseManager@{FirebaseManager}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{FirebaseManager()}{FirebaseManager()}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a1dd6fee956656a7bcb43984302bd7ed3} 
+Firebase\+Manager\+::\+Firebase\+Manager (\begin{DoxyParamCaption}\item[{String}]{plant\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new Firebase Manager object. 
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em plant\+Id} & The unique name of this node (e.\+g., "{}plant1"{}). Used to create the database path\+: /plants/\{plant\+Id\} \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_firebase_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_firebase_manager_a46b44784912cc27f313b34d3bea17bd8}\index{FirebaseManager@{FirebaseManager}!begin@{begin}}
+\index{begin@{begin}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a46b44784912cc27f313b34d3bea17bd8} 
+void Firebase\+Manager\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize the Cloud Connection. 
+
+
+\begin{DoxyEnumerate}
+\item Allocates memory for Firebase objects.
+\item Connects to Wi-\/\+Fi.
+\item Authenticates with Firebase (Anonymous mode).
+\item Waits for valid Token generation. 
+\end{DoxyEnumerate}\Hypertarget{class_firebase_manager_a4ff2a8f7cae36ad3aab4c141435f923a}\index{FirebaseManager@{FirebaseManager}!checkCommands@{checkCommands}}
+\index{checkCommands@{checkCommands}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{checkCommands()}{checkCommands()}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a4ff2a8f7cae36ad3aab4c141435f923a} 
+void Firebase\+Manager\+::check\+Commands (\begin{DoxyParamCaption}\item[{bool \&}]{pump\+Cmd}{, }\item[{bool \&}]{light\+Cmd}{}\end{DoxyParamCaption})}
+
+
+
+Checks the database for remote commands from the website. 
+
+
+\begin{DoxyItemize}
+\item Reads the "{}commands/pump"{} and "{}commands/light\+Toggle"{} paths. If true, it updates the referenced variables and resets the database value to false.
+\item 
+\begin{DoxyParams}{Parameters}
+{\em pump\+Cmd} & \mbox{[}OUT\mbox{]} Set to true if website requested watering. \\
+\hline
+{\em light\+Cmd} & \mbox{[}OUT\mbox{]} Set to true if website requested light toggle. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\Hypertarget{class_firebase_manager_a49e9737c40a0a46e379fa69b2d5728e2}\index{FirebaseManager@{FirebaseManager}!sendData@{sendData}}
+\index{sendData@{sendData}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a49e9737c40a0a46e379fa69b2d5728e2} 
+void Firebase\+Manager\+::send\+Data (\begin{DoxyParamCaption}\item[{int}]{moisture}{, }\item[{int}]{light\+Status}{, }\item[{bool}]{pump\+On}{, }\item[{bool}]{light\+On}{}\end{DoxyParamCaption})}
+
+
+
+Uploads a snapshot of the current system state to the Cloud. 
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em moisture} & Soil moisture percentage (0-\/100). \\
+\hline
+{\em light\+Status} & Light level code (0=Dark, 4=Very Bright). \\
+\hline
+{\em pump\+On} & True if pump is currently running. \\
+\hline
+{\em light\+On} & True if grow light is currently active. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+\label{doc-variable-members}
+\Hypertarget{class_firebase_manager_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{class_firebase_manager_a49a653063f7024a71bf3ca5f441b8b2c}\index{FirebaseManager@{FirebaseManager}!\_auth@{\_auth}}
+\index{\_auth@{\_auth}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{\_auth}{\_auth}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a49a653063f7024a71bf3ca5f441b8b2c} 
+Firebase\+Auth\texorpdfstring{$\ast$}{*} Firebase\+Manager\+::\+\_\+auth\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Authentication Credentials. 
+
+Stores the User UID and Token after sign-\/in (Anonymous or Email). \Hypertarget{class_firebase_manager_a53adf848bd5c9aaddb834b0e42ab9312}\index{FirebaseManager@{FirebaseManager}!\_config@{\_config}}
+\index{\_config@{\_config}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{\_config}{\_config}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a53adf848bd5c9aaddb834b0e42ab9312} 
+Firebase\+Config\texorpdfstring{$\ast$}{*} Firebase\+Manager\+::\+\_\+config\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Configuration Object. 
+
+Stores API Key, Database URL, and other settings. \Hypertarget{class_firebase_manager_a06b1a119fc31b7ade17febc15f04b5b1}\index{FirebaseManager@{FirebaseManager}!\_fbdo@{\_fbdo}}
+\index{\_fbdo@{\_fbdo}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{\_fbdo}{\_fbdo}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a06b1a119fc31b7ade17febc15f04b5b1} 
+Firebase\+Data\texorpdfstring{$\ast$}{*} Firebase\+Manager\+::\+\_\+fbdo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The primary Firebase Data Object. 
+
+Handles the actual HTTP/\+Wi\+Fi connection and holds response data. Allocated on Heap to save Stack memory. \Hypertarget{class_firebase_manager_a28e0d5e143bef7179467100f8b4e2183}\index{FirebaseManager@{FirebaseManager}!\_isReady@{\_isReady}}
+\index{\_isReady@{\_isReady}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{\_isReady}{\_isReady}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a28e0d5e143bef7179467100f8b4e2183} 
+bool Firebase\+Manager\+::\+\_\+is\+Ready\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Connection Status Flag. 
+
+True only after Wi-\/\+Fi is connected and Firebase Token is generated. \Hypertarget{class_firebase_manager_a44f741ec75bdac2796c8730fd78424da}\index{FirebaseManager@{FirebaseManager}!\_plantPath@{\_plantPath}}
+\index{\_plantPath@{\_plantPath}!FirebaseManager@{FirebaseManager}}
+\doxysubsubsection{\texorpdfstring{\_plantPath}{\_plantPath}}
+{\footnotesize\ttfamily \label{class_firebase_manager_a44f741ec75bdac2796c8730fd78424da} 
+String Firebase\+Manager\+::\+\_\+plant\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The root database path for this specific device. 
+
+Example\+: "{}/plants/plant1"{} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Firebase\+Manager/\mbox{\hyperlink{_firebase_manager_8h}{Firebase\+Manager.\+h}}\item 
+lib/\+Firebase\+Manager/\mbox{\hyperlink{_firebase_manager_8cpp}{Firebase\+Manager.\+cpp}}\end{DoxyCompactItemize}

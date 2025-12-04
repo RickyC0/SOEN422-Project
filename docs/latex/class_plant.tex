@@ -1,0 +1,480 @@
+\doxysection{Plant Class Reference}
+\hypertarget{class_plant}{}\label{class_plant}\index{Plant@{Plant}}
+
+
+{\ttfamily \#include $<$Plant.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant_a549bb64c96b299fb0261a03d04d696be}{Plant}} (int pump\+Pin=\mbox{\hyperlink{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0}{PUMP\+\_\+\+PIN}}, int moist\+Pin=\mbox{\hyperlink{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016}{MOISTURE\+\_\+\+PIN}}, int light\+Pin=\mbox{\hyperlink{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba}{LIGHT\+\_\+\+SENSOR\+\_\+\+PIN}}, int red\+\_\+led\+\_\+\+Pin=\mbox{\hyperlink{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb}{RGB\+\_\+\+RED\+\_\+\+PIN}}, int green\+\_\+led\+\_\+\+Pin=\mbox{\hyperlink{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e}{RGB\+\_\+\+GREEN\+\_\+\+PIN}}, int blue\+\_\+led\+\_\+\+Pin=\mbox{\hyperlink{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb}{RGB\+\_\+\+BLUE\+\_\+\+PIN}}, int dry\+\_\+moist\+\_\+sensor\+\_\+val=\mbox{\hyperlink{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0}{MOISTURE\+\_\+\+DRY}}, int wet\+\_\+moist\+\_\+sensor\+\_\+val=\mbox{\hyperlink{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e}{MOISTURE\+\_\+\+WET}}, int moist\+\_\+sensor\+\_\+thresh=\mbox{\hyperlink{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235}{MOISTURE\+\_\+\+THRESHOLD\+\_\+\+PERCENT}}, int light\+\_\+sensor\+\_\+thresh=\mbox{\hyperlink{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62}{LIGHT\+\_\+\+THRESHOLD\+\_\+\+LEVEL}}, unsigned long pump\+\_\+for\+\_\+ms=\mbox{\hyperlink{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108}{PUMP\+\_\+\+DURATION\+\_\+\+MS}}, unsigned long pump\+\_\+cooldown\+\_\+ms=\mbox{\hyperlink{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e}{WATERING\+\_\+\+COOLDOWN\+\_\+\+MS}}, unsigned long moist\+\_\+check\+\_\+interval\+\_\+ms=\mbox{\hyperlink{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049}{MOISTURE\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}, unsigned long light\+\_\+check\+\_\+interval\+\_\+ms=\mbox{\hyperlink{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d}{LIGHT\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}, unsigned long pause\+\_\+light\+\_\+interval\+\_\+ms=\mbox{\hyperlink{plant1__config_8h_a362579a1ab422353f691b6bcb4373255}{LIGHT\+\_\+\+PAUSE\+\_\+\+INTERVAL\+\_\+\+MS}})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_plant}{Plant} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a92091c351f5ef6c36284c274ed26eb2d}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Initializes all hardware components. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a5bc9bbea5228581b25660b37169f8c88}{update}} ()
+\begin{DoxyCompactList}\small\item\em Main logic loop for the plant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a7a55d425fecf0df455f98f4bb032d883}{manage\+Watering}} (unsigned long now)
+\begin{DoxyCompactList}\small\item\em Manages the Watering State Machine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a6af05d1ed986105ac71ed0c74a1da73d}{manage\+Lighting}} (unsigned long now)
+\begin{DoxyCompactList}\small\item\em Manages the Lighting Logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_aa39a7727ab2436056ec9787589726b3b}{manage\+RGB}} (int r, int g, int b)
+\begin{DoxyCompactList}\small\item\em Helper to write values to the RGB LED pins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_aadb72b223e3bbbd2cced5d2da4b1fb13}{manual\+Pump\+Trigger}} ()
+\begin{DoxyCompactList}\small\item\em Manually triggers a watering cycle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_ac692ea5616eb8c8640a061c2a0c6fda6}{manual\+Light\+Toggle}} ()
+\begin{DoxyCompactList}\small\item\em Manually toggles the grow lights on/off. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_plant_ab4b6a5a8649e8b2660de6345043c65c1}{get\+Moisture\+Percent}} ()
+\begin{DoxyCompactList}\small\item\em Get the current Soil Moisture Percentage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_plant_aba268bd93dd9891b8c79748eedf2e05d}{get\+Light\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Get the current Light Status Level. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_a552971773565dca9d2ac0aa953fc2fbb}{is\+Pump\+Running}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the water pump is currently active. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_a45b8a549f470c6aa205bacac015bf405}{is\+Light\+On}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the grow lights are currently on. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{class_plant_a439e6d2f20f997fedd316c0d6eba5a53}{get\+Plant\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Get the human-\/readable name of this plant node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6}{Watering\+State}} \{ \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a9a63544a81f504953b9c5882f6e07b9e}{W\+\_\+\+IDLE}}
+, \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a93e38d187fded59ef705cf751d26b455}{W\+\_\+\+PUMPING}}
+, \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6ae7400655de94541203d704ceab474806}{W\+\_\+\+COOLDOWN}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pump}{Pump}} \mbox{\hyperlink{class_plant_a77cc36f345d478094e80f595a0bc89c0}{\+\_\+pump}}
+\item 
+\mbox{\hyperlink{class_moisture_sensor}{Moisture\+Sensor}} \mbox{\hyperlink{class_plant_a7fbeb2c8a1bbdca5686e30d6e51af8cd}{\+\_\+moisture}}
+\item 
+\mbox{\hyperlink{class_light_sensor}{Light\+Sensor}} \mbox{\hyperlink{class_plant_a9166c16fc0031af391f25cd01e7abf75}{\+\_\+light\+Sensor}}
+\item 
+int \mbox{\hyperlink{class_plant_a3cd7ea9ceaaaa80b26ae1a5adea54618}{\+\_\+pin\+Red}}
+\item 
+int \mbox{\hyperlink{class_plant_a0abdf541fb0fe0b548affd0733191086}{\+\_\+pin\+Green}}
+\item 
+int \mbox{\hyperlink{class_plant_a615784a65094e28c5e531ea3f3beb830}{\+\_\+pin\+Blue}}
+\item 
+\mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6}{Watering\+State}} \mbox{\hyperlink{class_plant_aa20901d4208e028fa8db2889e5232b56}{\+\_\+water\+State}}
+\item 
+bool \mbox{\hyperlink{class_plant_afd15aa33d12fc39706b40fc057c8f0fa}{\+\_\+lighting\+Active}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_a7836281a431c99a14a62871d7846c087}{\+\_\+water\+Timer}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_a987612569fdc2d01494e9a919aac4747}{\+\_\+light\+Check\+Timer}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_a048742b8b19fbb4e4e71bca95b6c2268}{\+\_\+moisture\+Check\+Timer}}
+\item 
+int \mbox{\hyperlink{class_plant_ad4de27d46fff1614c2c5da735034075c}{\+\_\+moist\+Threshold}}
+\item 
+int \mbox{\hyperlink{class_plant_ae961daf11490143f2f933bbd131237ee}{\+\_\+light\+Threshold}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_a2e8947f091a605bdf60659bf500e9c1e}{\+\_\+pump\+Duration}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_a653bdcbd0b079a92b56d2c7cb93c46d4}{\+\_\+pump\+Cooldown}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_acbee7e86cfcf0d5bce53ea2bfe3fc029}{\+\_\+moist\+Check\+Interval}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_ac968f627b5ea97b1593f1fbdaeaa2d78}{\+\_\+light\+Check\+Interval}}
+\item 
+bool \mbox{\hyperlink{class_plant_a4d177ac88c68066ce6dc36e5ad353717}{\+\_\+is\+Peeking\+Light}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_ac317e781d814ab365cc3def432f34d3d}{\+\_\+peek\+Light\+Timer}}
+\item 
+unsigned long \mbox{\hyperlink{class_plant_aa050d7a764a83129dce9e6a62602bcb6}{\+\_\+pause\+Light\+Interval}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{class_plant_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_plant_a93819fc30e14fd0d83a4d326f5749cc6}\index{Plant@{Plant}!WateringState@{WateringState}}
+\index{WateringState@{WateringState}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{WateringState}{WateringState}}
+{\footnotesize\ttfamily \label{class_plant_a93819fc30e14fd0d83a4d326f5749cc6} 
+enum \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6}{Plant\+::\+Watering\+State}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\_IDLE@{W\_IDLE}!Plant@{Plant}}\index{Plant@{Plant}!W\_IDLE@{W\_IDLE}}}\Hypertarget{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a9a63544a81f504953b9c5882f6e07b9e}\label{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a9a63544a81f504953b9c5882f6e07b9e} 
+W\+\_\+\+IDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\_PUMPING@{W\_PUMPING}!Plant@{Plant}}\index{Plant@{Plant}!W\_PUMPING@{W\_PUMPING}}}\Hypertarget{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a93e38d187fded59ef705cf751d26b455}\label{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a93e38d187fded59ef705cf751d26b455} 
+W\+\_\+\+PUMPING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\_COOLDOWN@{W\_COOLDOWN}!Plant@{Plant}}\index{Plant@{Plant}!W\_COOLDOWN@{W\_COOLDOWN}}}\Hypertarget{class_plant_a93819fc30e14fd0d83a4d326f5749cc6ae7400655de94541203d704ceab474806}\label{class_plant_a93819fc30e14fd0d83a4d326f5749cc6ae7400655de94541203d704ceab474806} 
+W\+\_\+\+COOLDOWN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-constructors}
+\Hypertarget{class_plant_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_plant_a549bb64c96b299fb0261a03d04d696be}\index{Plant@{Plant}!Plant@{Plant}}
+\index{Plant@{Plant}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{Plant()}{Plant()}}
+{\footnotesize\ttfamily \label{class_plant_a549bb64c96b299fb0261a03d04d696be} 
+Plant\+::\+Plant (\begin{DoxyParamCaption}\item[{int}]{pump\+Pin}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0}{PUMP\+\_\+\+PIN}}}, }\item[{int}]{moist\+Pin}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016}{MOISTURE\+\_\+\+PIN}}}, }\item[{int}]{light\+Pin}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba}{LIGHT\+\_\+\+SENSOR\+\_\+\+PIN}}}, }\item[{int}]{red\+\_\+led\+\_\+\+Pin}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb}{RGB\+\_\+\+RED\+\_\+\+PIN}}}, }\item[{int}]{green\+\_\+led\+\_\+\+Pin}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e}{RGB\+\_\+\+GREEN\+\_\+\+PIN}}}, }\item[{int}]{blue\+\_\+led\+\_\+\+Pin}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb}{RGB\+\_\+\+BLUE\+\_\+\+PIN}}}, }\item[{int}]{dry\+\_\+moist\+\_\+sensor\+\_\+val}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0}{MOISTURE\+\_\+\+DRY}}}, }\item[{int}]{wet\+\_\+moist\+\_\+sensor\+\_\+val}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e}{MOISTURE\+\_\+\+WET}}}, }\item[{int}]{moist\+\_\+sensor\+\_\+thresh}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235}{MOISTURE\+\_\+\+THRESHOLD\+\_\+\+PERCENT}}}, }\item[{int}]{light\+\_\+sensor\+\_\+thresh}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62}{LIGHT\+\_\+\+THRESHOLD\+\_\+\+LEVEL}}}, }\item[{unsigned long}]{pump\+\_\+for\+\_\+ms}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108}{PUMP\+\_\+\+DURATION\+\_\+\+MS}}}, }\item[{unsigned long}]{pump\+\_\+cooldown\+\_\+ms}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e}{WATERING\+\_\+\+COOLDOWN\+\_\+\+MS}}}, }\item[{unsigned long}]{moist\+\_\+check\+\_\+interval\+\_\+ms}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049}{MOISTURE\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}}, }\item[{unsigned long}]{light\+\_\+check\+\_\+interval\+\_\+ms}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d}{LIGHT\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}}, }\item[{unsigned long}]{pause\+\_\+light\+\_\+interval\+\_\+ms}{ = {\ttfamily \mbox{\hyperlink{plant1__config_8h_a362579a1ab422353f691b6bcb4373255}{LIGHT\+\_\+\+PAUSE\+\_\+\+INTERVAL\+\_\+\+MS}}}}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_plant}{Plant} object. 
+
+Uses default arguments from \doxylink{_system_config_8h}{System\+Config.\+h} unless overridden.
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em pump\+Pin} & GPIO pin for the water pump relay \\
+\hline
+{\em moist\+Pin} & ADC pin for the soil moisture sensor \\
+\hline
+{\em light\+Pin} & ADC pin for the photoresistor \\
+\hline
+{\em red\+\_\+led\+\_\+\+Pin} & PWM pin for Red LED channel \\
+\hline
+{\em green\+\_\+led\+\_\+\+Pin} & PWM pin for Green LED channel \\
+\hline
+{\em blue\+\_\+led\+\_\+\+Pin} & PWM pin for Blue LED channel \\
+\hline
+{\em dry\+\_\+moist\+\_\+sensor\+\_\+val} & Raw ADC value for "{}0\% Wet"{} (Air) \\
+\hline
+{\em wet\+\_\+moist\+\_\+sensor\+\_\+val} & Raw ADC value for "{}100\% Wet"{} (Water) \\
+\hline
+{\em moist\+\_\+sensor\+\_\+thresh} & Percentage (0-\/100) below which watering triggers \\
+\hline
+{\em light\+\_\+sensor\+\_\+thresh} & Light Level (0-\/4) below which lights turn on \\
+\hline
+{\em pump\+\_\+for\+\_\+ms} & Duration to run pump in milliseconds \\
+\hline
+{\em pump\+\_\+cooldown\+\_\+ms} & Time to wait after watering before checking again \\
+\hline
+{\em moist\+\_\+check\+\_\+interval\+\_\+ms} & How often to read soil moisture \\
+\hline
+{\em light\+\_\+check\+\_\+interval\+\_\+ms} & How often to read ambient light \\
+\hline
+{\em pause\+\_\+light\+\_\+interval\+\_\+ms} & How long to turn off LED to peek at ambient light \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_plant_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_plant_a92091c351f5ef6c36284c274ed26eb2d}\index{Plant@{Plant}!begin@{begin}}
+\index{begin@{begin}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_plant_a92091c351f5ef6c36284c274ed26eb2d} 
+void Plant\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes all hardware components. 
+
+Sets pin modes and calls \doxylink{class_plant_a92091c351f5ef6c36284c274ed26eb2d}{begin()} on sensors. \Hypertarget{class_plant_aba268bd93dd9891b8c79748eedf2e05d}\index{Plant@{Plant}!getLightStatus@{getLightStatus}}
+\index{getLightStatus@{getLightStatus}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getLightStatus()}{getLightStatus()}}
+{\footnotesize\ttfamily \label{class_plant_aba268bd93dd9891b8c79748eedf2e05d} 
+int Plant\+::get\+Light\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the current Light Status Level. 
+
+
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+int (0=Dark, 4=Very Bright) 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_plant_ab4b6a5a8649e8b2660de6345043c65c1}\index{Plant@{Plant}!getMoisturePercent@{getMoisturePercent}}
+\index{getMoisturePercent@{getMoisturePercent}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getMoisturePercent()}{getMoisturePercent()}}
+{\footnotesize\ttfamily \label{class_plant_ab4b6a5a8649e8b2660de6345043c65c1} 
+int Plant\+::get\+Moisture\+Percent (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the current Soil Moisture Percentage. 
+
+
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+int (0-\/100) 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_plant_a439e6d2f20f997fedd316c0d6eba5a53}\index{Plant@{Plant}!getPlantName@{getPlantName}}
+\index{getPlantName@{getPlantName}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getPlantName()}{getPlantName()}}
+{\footnotesize\ttfamily \label{class_plant_a439e6d2f20f997fedd316c0d6eba5a53} 
+String Plant\+::get\+Plant\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the human-\/readable name of this plant node. 
+
+
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+String (e.\+g., "{}\+Plant 1 (\+Living Room)"{}) 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_plant_a45b8a549f470c6aa205bacac015bf405}\index{Plant@{Plant}!isLightOn@{isLightOn}}
+\index{isLightOn@{isLightOn}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{isLightOn()}{isLightOn()}}
+{\footnotesize\ttfamily \label{class_plant_a45b8a549f470c6aa205bacac015bf405} 
+bool Plant\+::is\+Light\+On (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the grow lights are currently on. 
+
+
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+true if lights are ON 
+
+false if lights are OFF 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_plant_a552971773565dca9d2ac0aa953fc2fbb}\index{Plant@{Plant}!isPumpRunning@{isPumpRunning}}
+\index{isPumpRunning@{isPumpRunning}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{isPumpRunning()}{isPumpRunning()}}
+{\footnotesize\ttfamily \label{class_plant_a552971773565dca9d2ac0aa953fc2fbb} 
+bool Plant\+::is\+Pump\+Running (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the water pump is currently active. 
+
+
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+true if pumping 
+
+false if idle or cooldown 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{class_plant_a6af05d1ed986105ac71ed0c74a1da73d}\index{Plant@{Plant}!manageLighting@{manageLighting}}
+\index{manageLighting@{manageLighting}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{manageLighting()}{manageLighting()}}
+{\footnotesize\ttfamily \label{class_plant_a6af05d1ed986105ac71ed0c74a1da73d} 
+void Plant\+::manage\+Lighting (\begin{DoxyParamCaption}\item[{unsigned long}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Manages the Lighting Logic. 
+
+Handles the "{}\+Active Peeking"{} algorithm to check ambient light without feedback loops.
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em now} & Current millis() time \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\Hypertarget{class_plant_aa39a7727ab2436056ec9787589726b3b}\index{Plant@{Plant}!manageRGB@{manageRGB}}
+\index{manageRGB@{manageRGB}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{manageRGB()}{manageRGB()}}
+{\footnotesize\ttfamily \label{class_plant_aa39a7727ab2436056ec9787589726b3b} 
+void Plant\+::manage\+RGB (\begin{DoxyParamCaption}\item[{int}]{r}{, }\item[{int}]{g}{, }\item[{int}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Helper to write values to the RGB LED pins. 
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em r} & Red Value (0-\/255) \\
+\hline
+{\em g} & Green Value (0-\/255) \\
+\hline
+{\em b} & Blue Value (0-\/255) \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\Hypertarget{class_plant_a7a55d425fecf0df455f98f4bb032d883}\index{Plant@{Plant}!manageWatering@{manageWatering}}
+\index{manageWatering@{manageWatering}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{manageWatering()}{manageWatering()}}
+{\footnotesize\ttfamily \label{class_plant_a7a55d425fecf0df455f98f4bb032d883} 
+void Plant\+::manage\+Watering (\begin{DoxyParamCaption}\item[{unsigned long}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Manages the Watering State Machine. 
+
+Transitions between IDLE, PUMPING, and COOLDOWN states based on timers and moisture levels.
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em now} & Current millis() time \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\Hypertarget{class_plant_ac692ea5616eb8c8640a061c2a0c6fda6}\index{Plant@{Plant}!manualLightToggle@{manualLightToggle}}
+\index{manualLightToggle@{manualLightToggle}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{manualLightToggle()}{manualLightToggle()}}
+{\footnotesize\ttfamily \label{class_plant_ac692ea5616eb8c8640a061c2a0c6fda6} 
+void Plant\+::manual\+Light\+Toggle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Manually toggles the grow lights on/off. 
+
+Called from the Web Dashboard command listener. \Hypertarget{class_plant_aadb72b223e3bbbd2cced5d2da4b1fb13}\index{Plant@{Plant}!manualPumpTrigger@{manualPumpTrigger}}
+\index{manualPumpTrigger@{manualPumpTrigger}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{manualPumpTrigger()}{manualPumpTrigger()}}
+{\footnotesize\ttfamily \label{class_plant_aadb72b223e3bbbd2cced5d2da4b1fb13} 
+void Plant\+::manual\+Pump\+Trigger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Manually triggers a watering cycle. 
+
+Called from the Web Dashboard command listener. \Hypertarget{class_plant_a5bc9bbea5228581b25660b37169f8c88}\index{Plant@{Plant}!update@{update}}
+\index{update@{update}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_plant_a5bc9bbea5228581b25660b37169f8c88} 
+void Plant\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main logic loop for the plant. 
+
+Should be called inside void \doxylink{camera__node_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop()}. Handles non-\/blocking updates for watering and lighting state machines. 
+
+\label{doc-variable-members}
+\Hypertarget{class_plant_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{class_plant_a4d177ac88c68066ce6dc36e5ad353717}\index{Plant@{Plant}!\_isPeekingLight@{\_isPeekingLight}}
+\index{\_isPeekingLight@{\_isPeekingLight}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_isPeekingLight}{\_isPeekingLight}}
+{\footnotesize\ttfamily \label{class_plant_a4d177ac88c68066ce6dc36e5ad353717} 
+bool Plant\+::\+\_\+is\+Peeking\+Light\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_ac968f627b5ea97b1593f1fbdaeaa2d78}\index{Plant@{Plant}!\_lightCheckInterval@{\_lightCheckInterval}}
+\index{\_lightCheckInterval@{\_lightCheckInterval}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_lightCheckInterval}{\_lightCheckInterval}}
+{\footnotesize\ttfamily \label{class_plant_ac968f627b5ea97b1593f1fbdaeaa2d78} 
+unsigned long Plant\+::\+\_\+light\+Check\+Interval\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a987612569fdc2d01494e9a919aac4747}\index{Plant@{Plant}!\_lightCheckTimer@{\_lightCheckTimer}}
+\index{\_lightCheckTimer@{\_lightCheckTimer}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_lightCheckTimer}{\_lightCheckTimer}}
+{\footnotesize\ttfamily \label{class_plant_a987612569fdc2d01494e9a919aac4747} 
+unsigned long Plant\+::\+\_\+light\+Check\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_afd15aa33d12fc39706b40fc057c8f0fa}\index{Plant@{Plant}!\_lightingActive@{\_lightingActive}}
+\index{\_lightingActive@{\_lightingActive}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_lightingActive}{\_lightingActive}}
+{\footnotesize\ttfamily \label{class_plant_afd15aa33d12fc39706b40fc057c8f0fa} 
+bool Plant\+::\+\_\+lighting\+Active\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a9166c16fc0031af391f25cd01e7abf75}\index{Plant@{Plant}!\_lightSensor@{\_lightSensor}}
+\index{\_lightSensor@{\_lightSensor}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_lightSensor}{\_lightSensor}}
+{\footnotesize\ttfamily \label{class_plant_a9166c16fc0031af391f25cd01e7abf75} 
+\mbox{\hyperlink{class_light_sensor}{Light\+Sensor}} Plant\+::\+\_\+light\+Sensor\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_ae961daf11490143f2f933bbd131237ee}\index{Plant@{Plant}!\_lightThreshold@{\_lightThreshold}}
+\index{\_lightThreshold@{\_lightThreshold}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_lightThreshold}{\_lightThreshold}}
+{\footnotesize\ttfamily \label{class_plant_ae961daf11490143f2f933bbd131237ee} 
+int Plant\+::\+\_\+light\+Threshold\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_acbee7e86cfcf0d5bce53ea2bfe3fc029}\index{Plant@{Plant}!\_moistCheckInterval@{\_moistCheckInterval}}
+\index{\_moistCheckInterval@{\_moistCheckInterval}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_moistCheckInterval}{\_moistCheckInterval}}
+{\footnotesize\ttfamily \label{class_plant_acbee7e86cfcf0d5bce53ea2bfe3fc029} 
+unsigned long Plant\+::\+\_\+moist\+Check\+Interval\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_ad4de27d46fff1614c2c5da735034075c}\index{Plant@{Plant}!\_moistThreshold@{\_moistThreshold}}
+\index{\_moistThreshold@{\_moistThreshold}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_moistThreshold}{\_moistThreshold}}
+{\footnotesize\ttfamily \label{class_plant_ad4de27d46fff1614c2c5da735034075c} 
+int Plant\+::\+\_\+moist\+Threshold\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a7fbeb2c8a1bbdca5686e30d6e51af8cd}\index{Plant@{Plant}!\_moisture@{\_moisture}}
+\index{\_moisture@{\_moisture}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_moisture}{\_moisture}}
+{\footnotesize\ttfamily \label{class_plant_a7fbeb2c8a1bbdca5686e30d6e51af8cd} 
+\mbox{\hyperlink{class_moisture_sensor}{Moisture\+Sensor}} Plant\+::\+\_\+moisture\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a048742b8b19fbb4e4e71bca95b6c2268}\index{Plant@{Plant}!\_moistureCheckTimer@{\_moistureCheckTimer}}
+\index{\_moistureCheckTimer@{\_moistureCheckTimer}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_moistureCheckTimer}{\_moistureCheckTimer}}
+{\footnotesize\ttfamily \label{class_plant_a048742b8b19fbb4e4e71bca95b6c2268} 
+unsigned long Plant\+::\+\_\+moisture\+Check\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_aa050d7a764a83129dce9e6a62602bcb6}\index{Plant@{Plant}!\_pauseLightInterval@{\_pauseLightInterval}}
+\index{\_pauseLightInterval@{\_pauseLightInterval}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_pauseLightInterval}{\_pauseLightInterval}}
+{\footnotesize\ttfamily \label{class_plant_aa050d7a764a83129dce9e6a62602bcb6} 
+unsigned long Plant\+::\+\_\+pause\+Light\+Interval\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_ac317e781d814ab365cc3def432f34d3d}\index{Plant@{Plant}!\_peekLightTimer@{\_peekLightTimer}}
+\index{\_peekLightTimer@{\_peekLightTimer}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_peekLightTimer}{\_peekLightTimer}}
+{\footnotesize\ttfamily \label{class_plant_ac317e781d814ab365cc3def432f34d3d} 
+unsigned long Plant\+::\+\_\+peek\+Light\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a615784a65094e28c5e531ea3f3beb830}\index{Plant@{Plant}!\_pinBlue@{\_pinBlue}}
+\index{\_pinBlue@{\_pinBlue}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_pinBlue}{\_pinBlue}}
+{\footnotesize\ttfamily \label{class_plant_a615784a65094e28c5e531ea3f3beb830} 
+int Plant\+::\+\_\+pin\+Blue\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a0abdf541fb0fe0b548affd0733191086}\index{Plant@{Plant}!\_pinGreen@{\_pinGreen}}
+\index{\_pinGreen@{\_pinGreen}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_pinGreen}{\_pinGreen}}
+{\footnotesize\ttfamily \label{class_plant_a0abdf541fb0fe0b548affd0733191086} 
+int Plant\+::\+\_\+pin\+Green\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a3cd7ea9ceaaaa80b26ae1a5adea54618}\index{Plant@{Plant}!\_pinRed@{\_pinRed}}
+\index{\_pinRed@{\_pinRed}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_pinRed}{\_pinRed}}
+{\footnotesize\ttfamily \label{class_plant_a3cd7ea9ceaaaa80b26ae1a5adea54618} 
+int Plant\+::\+\_\+pin\+Red\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a77cc36f345d478094e80f595a0bc89c0}\index{Plant@{Plant}!\_pump@{\_pump}}
+\index{\_pump@{\_pump}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_pump}{\_pump}}
+{\footnotesize\ttfamily \label{class_plant_a77cc36f345d478094e80f595a0bc89c0} 
+\mbox{\hyperlink{class_pump}{Pump}} Plant\+::\+\_\+pump\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a653bdcbd0b079a92b56d2c7cb93c46d4}\index{Plant@{Plant}!\_pumpCooldown@{\_pumpCooldown}}
+\index{\_pumpCooldown@{\_pumpCooldown}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_pumpCooldown}{\_pumpCooldown}}
+{\footnotesize\ttfamily \label{class_plant_a653bdcbd0b079a92b56d2c7cb93c46d4} 
+unsigned long Plant\+::\+\_\+pump\+Cooldown\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a2e8947f091a605bdf60659bf500e9c1e}\index{Plant@{Plant}!\_pumpDuration@{\_pumpDuration}}
+\index{\_pumpDuration@{\_pumpDuration}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_pumpDuration}{\_pumpDuration}}
+{\footnotesize\ttfamily \label{class_plant_a2e8947f091a605bdf60659bf500e9c1e} 
+unsigned long Plant\+::\+\_\+pump\+Duration\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_aa20901d4208e028fa8db2889e5232b56}\index{Plant@{Plant}!\_waterState@{\_waterState}}
+\index{\_waterState@{\_waterState}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_waterState}{\_waterState}}
+{\footnotesize\ttfamily \label{class_plant_aa20901d4208e028fa8db2889e5232b56} 
+\mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6}{Watering\+State}} Plant\+::\+\_\+water\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_plant_a7836281a431c99a14a62871d7846c087}\index{Plant@{Plant}!\_waterTimer@{\_waterTimer}}
+\index{\_waterTimer@{\_waterTimer}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{\_waterTimer}{\_waterTimer}}
+{\footnotesize\ttfamily \label{class_plant_a7836281a431c99a14a62871d7846c087} 
+unsigned long Plant\+::\+\_\+water\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Plant/\mbox{\hyperlink{_plant_8h}{Plant.\+h}}\item 
+lib/\+Plant/\mbox{\hyperlink{_plant_8cpp}{Plant.\+cpp}}\end{DoxyCompactItemize}

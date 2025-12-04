@@ -1,0 +1,337 @@
+\doxysection{include/plants/plant1\+\_\+config.h File Reference}
+\hypertarget{plant1__config_8h}{}\label{plant1__config_8h}\index{include/plants/plant1\_config.h@{include/plants/plant1\_config.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_aaed5be30e87e091fb60e6b6170157e75}{PLANT\+\_\+\+NAME}}~"{}Plant 1 (Living Room)"{}
+\begin{DoxyCompactList}\small\item\em Configuration for PLANT NODE 1. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016}{MOISTURE\+\_\+\+PIN}}~34
+\begin{DoxyCompactList}\small\item\em Analog Input Pins. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba}{LIGHT\+\_\+\+SENSOR\+\_\+\+PIN}}~35
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0}{PUMP\+\_\+\+PIN}}~12
+\begin{DoxyCompactList}\small\item\em Digital Output Pins. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb}{RGB\+\_\+\+RED\+\_\+\+PIN}}~18
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e}{RGB\+\_\+\+GREEN\+\_\+\+PIN}}~23
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb}{RGB\+\_\+\+BLUE\+\_\+\+PIN}}~19
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_ad89976cc0b5340110179f6ce40df3028}{SERIAL\+\_\+\+BAUD\+\_\+\+RATE}}~115200
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0}{MOISTURE\+\_\+\+DRY}}~4095
+\begin{DoxyCompactList}\small\item\em Capacitive Moisture Sensor Limits. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e}{MOISTURE\+\_\+\+WET}}~500
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235}{MOISTURE\+\_\+\+THRESHOLD\+\_\+\+PERCENT}}~30
+\begin{DoxyCompactList}\small\item\em Trigger points for automation. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62}{LIGHT\+\_\+\+THRESHOLD\+\_\+\+LEVEL}}~2
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108}{PUMP\+\_\+\+DURATION\+\_\+\+MS}}~3 \texorpdfstring{$\ast$}{*} 1000
+\begin{DoxyCompactList}\small\item\em System timing variables (in Milliseconds). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e}{WATERING\+\_\+\+COOLDOWN\+\_\+\+MS}}~1 \texorpdfstring{$\ast$}{*} 1000
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049}{MOISTURE\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}~30 \texorpdfstring{$\ast$}{*} 1000
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d}{LIGHT\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}~30 \texorpdfstring{$\ast$}{*} 1000
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a362579a1ab422353f691b6bcb4373255}{LIGHT\+\_\+\+PAUSE\+\_\+\+INTERVAL\+\_\+\+MS}}~2 \texorpdfstring{$\ast$}{*} 1000
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a3ca5aba93ea3b91b0fb4e607bd024758}{UPLOAD\+\_\+\+TIMER}}~5 \texorpdfstring{$\ast$}{*} 1000
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a0b890640779ef77816f2ad37de274f00}{WIFI\+\_\+\+DELAY\+\_\+\+MS}}~500
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_acd94fd0cc9c4019e56a4ee5bbae46187}{PWDN\+\_\+\+GPIO\+\_\+\+NUM}}~-\/1
+\begin{DoxyCompactList}\small\item\em Pin definitions for the Freenove ESP32-\/\+WROVER Camera Board. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a5c7f6f1de30b1a82b0c3114875188e63}{RESET\+\_\+\+GPIO\+\_\+\+NUM}}~-\/1
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a95c10014a0137dd0325f865b4e5081ad}{XCLK\+\_\+\+GPIO\+\_\+\+NUM}}~21
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_aa42bb5c1aa01721e23de5bfd013b8386}{SIOD\+\_\+\+GPIO\+\_\+\+NUM}}~26
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a5dcc14376605cf12c646dd373a8666f2}{SIOC\+\_\+\+GPIO\+\_\+\+NUM}}~27
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_ac4bb8ab18cd4c266ab0488258bcf532b}{Y9\+\_\+\+GPIO\+\_\+\+NUM}}~35
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a62e3a96248f640e3a3f1c4f981114977}{Y8\+\_\+\+GPIO\+\_\+\+NUM}}~34
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a90363cd30ea2ba00ae325e870ba4e439}{Y7\+\_\+\+GPIO\+\_\+\+NUM}}~39
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a874b1f631620b8a0fe958b832b514898}{Y6\+\_\+\+GPIO\+\_\+\+NUM}}~36
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_add1e27bf66aee1175b6ec19827f19cc5}{Y5\+\_\+\+GPIO\+\_\+\+NUM}}~19
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a180eabbefea3b0cd2f838da3db6d5d18}{Y4\+\_\+\+GPIO\+\_\+\+NUM}}~18
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a026c35be36dda6497454d38d3fbdeea8}{Y3\+\_\+\+GPIO\+\_\+\+NUM}}~5
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a822fa41845b2c12dd927a5146016b7a4}{Y2\+\_\+\+GPIO\+\_\+\+NUM}}~4
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a272682da27a4b5c6fb5965abcdcce26c}{VSYNC\+\_\+\+GPIO\+\_\+\+NUM}}~25
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a52a6b5ff8023694656f37d703ce68a45}{HREF\+\_\+\+GPIO\+\_\+\+NUM}}~23
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_ad65308c6f2f23570174a6833aacad785}{PCLK\+\_\+\+GPIO\+\_\+\+NUM}}~22
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a53ca4b0c1f07ce031074224ef463ae26}{SERVER\+\_\+\+PICTURE\+\_\+\+RESPONSE\+\_\+\+TIMEOUT\+\_\+\+MS}}~10 \texorpdfstring{$\ast$}{*} 1000
+\item 
+\#define \mbox{\hyperlink{plant1__config_8h_a76111b271eba04662161ba4abaa5449f}{CAMERA\+\_\+\+UPLOAD\+\_\+\+INTERVAL\+\_\+\+MS}}~60 \texorpdfstring{$\ast$}{*} 1000
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plant1__config_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plant1__config_8h_a76111b271eba04662161ba4abaa5449f}\index{plant1\_config.h@{plant1\_config.h}!CAMERA\_UPLOAD\_INTERVAL\_MS@{CAMERA\_UPLOAD\_INTERVAL\_MS}}
+\index{CAMERA\_UPLOAD\_INTERVAL\_MS@{CAMERA\_UPLOAD\_INTERVAL\_MS}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{CAMERA\_UPLOAD\_INTERVAL\_MS}{CAMERA\_UPLOAD\_INTERVAL\_MS}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a76111b271eba04662161ba4abaa5449f} 
+\#define CAMERA\+\_\+\+UPLOAD\+\_\+\+INTERVAL\+\_\+\+MS~60 \texorpdfstring{$\ast$}{*} 1000}
+
+\Hypertarget{plant1__config_8h_a52a6b5ff8023694656f37d703ce68a45}\index{plant1\_config.h@{plant1\_config.h}!HREF\_GPIO\_NUM@{HREF\_GPIO\_NUM}}
+\index{HREF\_GPIO\_NUM@{HREF\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{HREF\_GPIO\_NUM}{HREF\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a52a6b5ff8023694656f37d703ce68a45} 
+\#define HREF\+\_\+\+GPIO\+\_\+\+NUM~23}
+
+\Hypertarget{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d}\index{plant1\_config.h@{plant1\_config.h}!LIGHT\_CHECK\_INTERVAL\_MS@{LIGHT\_CHECK\_INTERVAL\_MS}}
+\index{LIGHT\_CHECK\_INTERVAL\_MS@{LIGHT\_CHECK\_INTERVAL\_MS}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{LIGHT\_CHECK\_INTERVAL\_MS}{LIGHT\_CHECK\_INTERVAL\_MS}}
+{\footnotesize\ttfamily \label{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d} 
+\#define LIGHT\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS~30 \texorpdfstring{$\ast$}{*} 1000}
+
+\Hypertarget{plant1__config_8h_a362579a1ab422353f691b6bcb4373255}\index{plant1\_config.h@{plant1\_config.h}!LIGHT\_PAUSE\_INTERVAL\_MS@{LIGHT\_PAUSE\_INTERVAL\_MS}}
+\index{LIGHT\_PAUSE\_INTERVAL\_MS@{LIGHT\_PAUSE\_INTERVAL\_MS}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{LIGHT\_PAUSE\_INTERVAL\_MS}{LIGHT\_PAUSE\_INTERVAL\_MS}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a362579a1ab422353f691b6bcb4373255} 
+\#define LIGHT\+\_\+\+PAUSE\+\_\+\+INTERVAL\+\_\+\+MS~2 \texorpdfstring{$\ast$}{*} 1000}
+
+\Hypertarget{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba}\index{plant1\_config.h@{plant1\_config.h}!LIGHT\_SENSOR\_PIN@{LIGHT\_SENSOR\_PIN}}
+\index{LIGHT\_SENSOR\_PIN@{LIGHT\_SENSOR\_PIN}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{LIGHT\_SENSOR\_PIN}{LIGHT\_SENSOR\_PIN}}
+{\footnotesize\ttfamily \label{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba} 
+\#define LIGHT\+\_\+\+SENSOR\+\_\+\+PIN~35}
+
+\Hypertarget{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62}\index{plant1\_config.h@{plant1\_config.h}!LIGHT\_THRESHOLD\_LEVEL@{LIGHT\_THRESHOLD\_LEVEL}}
+\index{LIGHT\_THRESHOLD\_LEVEL@{LIGHT\_THRESHOLD\_LEVEL}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{LIGHT\_THRESHOLD\_LEVEL}{LIGHT\_THRESHOLD\_LEVEL}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62} 
+\#define LIGHT\+\_\+\+THRESHOLD\+\_\+\+LEVEL~2}
+
+\Hypertarget{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049}\index{plant1\_config.h@{plant1\_config.h}!MOISTURE\_CHECK\_INTERVAL\_MS@{MOISTURE\_CHECK\_INTERVAL\_MS}}
+\index{MOISTURE\_CHECK\_INTERVAL\_MS@{MOISTURE\_CHECK\_INTERVAL\_MS}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{MOISTURE\_CHECK\_INTERVAL\_MS}{MOISTURE\_CHECK\_INTERVAL\_MS}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049} 
+\#define MOISTURE\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS~30 \texorpdfstring{$\ast$}{*} 1000}
+
+\Hypertarget{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0}\index{plant1\_config.h@{plant1\_config.h}!MOISTURE\_DRY@{MOISTURE\_DRY}}
+\index{MOISTURE\_DRY@{MOISTURE\_DRY}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{MOISTURE\_DRY}{MOISTURE\_DRY}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0} 
+\#define MOISTURE\+\_\+\+DRY~4095}
+
+
+
+Capacitive Moisture Sensor Limits. 
+
+Determined experimentally by placing sensor in air (Dry) and water (Wet). \Hypertarget{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016}\index{plant1\_config.h@{plant1\_config.h}!MOISTURE\_PIN@{MOISTURE\_PIN}}
+\index{MOISTURE\_PIN@{MOISTURE\_PIN}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{MOISTURE\_PIN}{MOISTURE\_PIN}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016} 
+\#define MOISTURE\+\_\+\+PIN~34}
+
+
+
+Analog Input Pins. 
+
+\begin{DoxyWarning}{Warning}
+Must use ADC1 pins (32, 33, 34, 35, 36, 39). Pins 0, 2, 4, 12-\/15, 25-\/27 are ADC2 and CANNOT be used while Wi-\/\+Fi is active. 
+\end{DoxyWarning}
+\Hypertarget{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235}\index{plant1\_config.h@{plant1\_config.h}!MOISTURE\_THRESHOLD\_PERCENT@{MOISTURE\_THRESHOLD\_PERCENT}}
+\index{MOISTURE\_THRESHOLD\_PERCENT@{MOISTURE\_THRESHOLD\_PERCENT}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{MOISTURE\_THRESHOLD\_PERCENT}{MOISTURE\_THRESHOLD\_PERCENT}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235} 
+\#define MOISTURE\+\_\+\+THRESHOLD\+\_\+\+PERCENT~30}
+
+
+
+Trigger points for automation. 
+
+\Hypertarget{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e}\index{plant1\_config.h@{plant1\_config.h}!MOISTURE\_WET@{MOISTURE\_WET}}
+\index{MOISTURE\_WET@{MOISTURE\_WET}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{MOISTURE\_WET}{MOISTURE\_WET}}
+{\footnotesize\ttfamily \label{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e} 
+\#define MOISTURE\+\_\+\+WET~500}
+
+\Hypertarget{plant1__config_8h_ad65308c6f2f23570174a6833aacad785}\index{plant1\_config.h@{plant1\_config.h}!PCLK\_GPIO\_NUM@{PCLK\_GPIO\_NUM}}
+\index{PCLK\_GPIO\_NUM@{PCLK\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{PCLK\_GPIO\_NUM}{PCLK\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_ad65308c6f2f23570174a6833aacad785} 
+\#define PCLK\+\_\+\+GPIO\+\_\+\+NUM~22}
+
+\Hypertarget{plant1__config_8h_aaed5be30e87e091fb60e6b6170157e75}\index{plant1\_config.h@{plant1\_config.h}!PLANT\_NAME@{PLANT\_NAME}}
+\index{PLANT\_NAME@{PLANT\_NAME}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{PLANT\_NAME}{PLANT\_NAME}}
+{\footnotesize\ttfamily \label{plant1__config_8h_aaed5be30e87e091fb60e6b6170157e75} 
+\#define PLANT\+\_\+\+NAME~"{}Plant 1 (Living Room)"{}}
+
+
+
+Configuration for PLANT NODE 1. 
+
+This file defines the hardware wiring, calibration data, and logical behavior specific to the physical plant setup in the "{}\+Living Room"{}. \Hypertarget{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108}\index{plant1\_config.h@{plant1\_config.h}!PUMP\_DURATION\_MS@{PUMP\_DURATION\_MS}}
+\index{PUMP\_DURATION\_MS@{PUMP\_DURATION\_MS}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{PUMP\_DURATION\_MS}{PUMP\_DURATION\_MS}}
+{\footnotesize\ttfamily \label{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108} 
+\#define PUMP\+\_\+\+DURATION\+\_\+\+MS~3 \texorpdfstring{$\ast$}{*} 1000}
+
+
+
+System timing variables (in Milliseconds). 
+
+Using math (3 \texorpdfstring{$\ast$}{*} 1000) makes it easier to read as "{}3 seconds"{}. \Hypertarget{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0}\index{plant1\_config.h@{plant1\_config.h}!PUMP\_PIN@{PUMP\_PIN}}
+\index{PUMP\_PIN@{PUMP\_PIN}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{PUMP\_PIN}{PUMP\_PIN}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0} 
+\#define PUMP\+\_\+\+PIN~12}
+
+
+
+Digital Output Pins. 
+
+Any GPIO can be used for output, but avoid strapping pins (0, 2, 12, 15) if possible to prevent boot issues. \Hypertarget{plant1__config_8h_acd94fd0cc9c4019e56a4ee5bbae46187}\index{plant1\_config.h@{plant1\_config.h}!PWDN\_GPIO\_NUM@{PWDN\_GPIO\_NUM}}
+\index{PWDN\_GPIO\_NUM@{PWDN\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWDN\_GPIO\_NUM}{PWDN\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_acd94fd0cc9c4019e56a4ee5bbae46187} 
+\#define PWDN\+\_\+\+GPIO\+\_\+\+NUM~-\/1}
+
+
+
+Pin definitions for the Freenove ESP32-\/\+WROVER Camera Board. 
+
+Do not change these unless using a different physical board (e.\+g. AI-\/\+Thinker). \Hypertarget{plant1__config_8h_a5c7f6f1de30b1a82b0c3114875188e63}\index{plant1\_config.h@{plant1\_config.h}!RESET\_GPIO\_NUM@{RESET\_GPIO\_NUM}}
+\index{RESET\_GPIO\_NUM@{RESET\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{RESET\_GPIO\_NUM}{RESET\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a5c7f6f1de30b1a82b0c3114875188e63} 
+\#define RESET\+\_\+\+GPIO\+\_\+\+NUM~-\/1}
+
+\Hypertarget{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb}\index{plant1\_config.h@{plant1\_config.h}!RGB\_BLUE\_PIN@{RGB\_BLUE\_PIN}}
+\index{RGB\_BLUE\_PIN@{RGB\_BLUE\_PIN}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{RGB\_BLUE\_PIN}{RGB\_BLUE\_PIN}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb} 
+\#define RGB\+\_\+\+BLUE\+\_\+\+PIN~19}
+
+\Hypertarget{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e}\index{plant1\_config.h@{plant1\_config.h}!RGB\_GREEN\_PIN@{RGB\_GREEN\_PIN}}
+\index{RGB\_GREEN\_PIN@{RGB\_GREEN\_PIN}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{RGB\_GREEN\_PIN}{RGB\_GREEN\_PIN}}
+{\footnotesize\ttfamily \label{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e} 
+\#define RGB\+\_\+\+GREEN\+\_\+\+PIN~23}
+
+\Hypertarget{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb}\index{plant1\_config.h@{plant1\_config.h}!RGB\_RED\_PIN@{RGB\_RED\_PIN}}
+\index{RGB\_RED\_PIN@{RGB\_RED\_PIN}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{RGB\_RED\_PIN}{RGB\_RED\_PIN}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb} 
+\#define RGB\+\_\+\+RED\+\_\+\+PIN~18}
+
+\Hypertarget{plant1__config_8h_ad89976cc0b5340110179f6ce40df3028}\index{plant1\_config.h@{plant1\_config.h}!SERIAL\_BAUD\_RATE@{SERIAL\_BAUD\_RATE}}
+\index{SERIAL\_BAUD\_RATE@{SERIAL\_BAUD\_RATE}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_BAUD\_RATE}{SERIAL\_BAUD\_RATE}}
+{\footnotesize\ttfamily \label{plant1__config_8h_ad89976cc0b5340110179f6ce40df3028} 
+\#define SERIAL\+\_\+\+BAUD\+\_\+\+RATE~115200}
+
+\Hypertarget{plant1__config_8h_a53ca4b0c1f07ce031074224ef463ae26}\index{plant1\_config.h@{plant1\_config.h}!SERVER\_PICTURE\_RESPONSE\_TIMEOUT\_MS@{SERVER\_PICTURE\_RESPONSE\_TIMEOUT\_MS}}
+\index{SERVER\_PICTURE\_RESPONSE\_TIMEOUT\_MS@{SERVER\_PICTURE\_RESPONSE\_TIMEOUT\_MS}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{SERVER\_PICTURE\_RESPONSE\_TIMEOUT\_MS}{SERVER\_PICTURE\_RESPONSE\_TIMEOUT\_MS}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a53ca4b0c1f07ce031074224ef463ae26} 
+\#define SERVER\+\_\+\+PICTURE\+\_\+\+RESPONSE\+\_\+\+TIMEOUT\+\_\+\+MS~10 \texorpdfstring{$\ast$}{*} 1000}
+
+\Hypertarget{plant1__config_8h_a5dcc14376605cf12c646dd373a8666f2}\index{plant1\_config.h@{plant1\_config.h}!SIOC\_GPIO\_NUM@{SIOC\_GPIO\_NUM}}
+\index{SIOC\_GPIO\_NUM@{SIOC\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{SIOC\_GPIO\_NUM}{SIOC\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a5dcc14376605cf12c646dd373a8666f2} 
+\#define SIOC\+\_\+\+GPIO\+\_\+\+NUM~27}
+
+\Hypertarget{plant1__config_8h_aa42bb5c1aa01721e23de5bfd013b8386}\index{plant1\_config.h@{plant1\_config.h}!SIOD\_GPIO\_NUM@{SIOD\_GPIO\_NUM}}
+\index{SIOD\_GPIO\_NUM@{SIOD\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{SIOD\_GPIO\_NUM}{SIOD\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_aa42bb5c1aa01721e23de5bfd013b8386} 
+\#define SIOD\+\_\+\+GPIO\+\_\+\+NUM~26}
+
+\Hypertarget{plant1__config_8h_a3ca5aba93ea3b91b0fb4e607bd024758}\index{plant1\_config.h@{plant1\_config.h}!UPLOAD\_TIMER@{UPLOAD\_TIMER}}
+\index{UPLOAD\_TIMER@{UPLOAD\_TIMER}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{UPLOAD\_TIMER}{UPLOAD\_TIMER}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a3ca5aba93ea3b91b0fb4e607bd024758} 
+\#define UPLOAD\+\_\+\+TIMER~5 \texorpdfstring{$\ast$}{*} 1000}
+
+\Hypertarget{plant1__config_8h_a272682da27a4b5c6fb5965abcdcce26c}\index{plant1\_config.h@{plant1\_config.h}!VSYNC\_GPIO\_NUM@{VSYNC\_GPIO\_NUM}}
+\index{VSYNC\_GPIO\_NUM@{VSYNC\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{VSYNC\_GPIO\_NUM}{VSYNC\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a272682da27a4b5c6fb5965abcdcce26c} 
+\#define VSYNC\+\_\+\+GPIO\+\_\+\+NUM~25}
+
+\Hypertarget{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e}\index{plant1\_config.h@{plant1\_config.h}!WATERING\_COOLDOWN\_MS@{WATERING\_COOLDOWN\_MS}}
+\index{WATERING\_COOLDOWN\_MS@{WATERING\_COOLDOWN\_MS}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{WATERING\_COOLDOWN\_MS}{WATERING\_COOLDOWN\_MS}}
+{\footnotesize\ttfamily \label{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e} 
+\#define WATERING\+\_\+\+COOLDOWN\+\_\+\+MS~1 \texorpdfstring{$\ast$}{*} 1000}
+
+\Hypertarget{plant1__config_8h_a0b890640779ef77816f2ad37de274f00}\index{plant1\_config.h@{plant1\_config.h}!WIFI\_DELAY\_MS@{WIFI\_DELAY\_MS}}
+\index{WIFI\_DELAY\_MS@{WIFI\_DELAY\_MS}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{WIFI\_DELAY\_MS}{WIFI\_DELAY\_MS}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a0b890640779ef77816f2ad37de274f00} 
+\#define WIFI\+\_\+\+DELAY\+\_\+\+MS~500}
+
+\Hypertarget{plant1__config_8h_a95c10014a0137dd0325f865b4e5081ad}\index{plant1\_config.h@{plant1\_config.h}!XCLK\_GPIO\_NUM@{XCLK\_GPIO\_NUM}}
+\index{XCLK\_GPIO\_NUM@{XCLK\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{XCLK\_GPIO\_NUM}{XCLK\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a95c10014a0137dd0325f865b4e5081ad} 
+\#define XCLK\+\_\+\+GPIO\+\_\+\+NUM~21}
+
+\Hypertarget{plant1__config_8h_a822fa41845b2c12dd927a5146016b7a4}\index{plant1\_config.h@{plant1\_config.h}!Y2\_GPIO\_NUM@{Y2\_GPIO\_NUM}}
+\index{Y2\_GPIO\_NUM@{Y2\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{Y2\_GPIO\_NUM}{Y2\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a822fa41845b2c12dd927a5146016b7a4} 
+\#define Y2\+\_\+\+GPIO\+\_\+\+NUM~4}
+
+\Hypertarget{plant1__config_8h_a026c35be36dda6497454d38d3fbdeea8}\index{plant1\_config.h@{plant1\_config.h}!Y3\_GPIO\_NUM@{Y3\_GPIO\_NUM}}
+\index{Y3\_GPIO\_NUM@{Y3\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{Y3\_GPIO\_NUM}{Y3\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a026c35be36dda6497454d38d3fbdeea8} 
+\#define Y3\+\_\+\+GPIO\+\_\+\+NUM~5}
+
+\Hypertarget{plant1__config_8h_a180eabbefea3b0cd2f838da3db6d5d18}\index{plant1\_config.h@{plant1\_config.h}!Y4\_GPIO\_NUM@{Y4\_GPIO\_NUM}}
+\index{Y4\_GPIO\_NUM@{Y4\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{Y4\_GPIO\_NUM}{Y4\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a180eabbefea3b0cd2f838da3db6d5d18} 
+\#define Y4\+\_\+\+GPIO\+\_\+\+NUM~18}
+
+\Hypertarget{plant1__config_8h_add1e27bf66aee1175b6ec19827f19cc5}\index{plant1\_config.h@{plant1\_config.h}!Y5\_GPIO\_NUM@{Y5\_GPIO\_NUM}}
+\index{Y5\_GPIO\_NUM@{Y5\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{Y5\_GPIO\_NUM}{Y5\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_add1e27bf66aee1175b6ec19827f19cc5} 
+\#define Y5\+\_\+\+GPIO\+\_\+\+NUM~19}
+
+\Hypertarget{plant1__config_8h_a874b1f631620b8a0fe958b832b514898}\index{plant1\_config.h@{plant1\_config.h}!Y6\_GPIO\_NUM@{Y6\_GPIO\_NUM}}
+\index{Y6\_GPIO\_NUM@{Y6\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{Y6\_GPIO\_NUM}{Y6\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a874b1f631620b8a0fe958b832b514898} 
+\#define Y6\+\_\+\+GPIO\+\_\+\+NUM~36}
+
+\Hypertarget{plant1__config_8h_a90363cd30ea2ba00ae325e870ba4e439}\index{plant1\_config.h@{plant1\_config.h}!Y7\_GPIO\_NUM@{Y7\_GPIO\_NUM}}
+\index{Y7\_GPIO\_NUM@{Y7\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{Y7\_GPIO\_NUM}{Y7\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a90363cd30ea2ba00ae325e870ba4e439} 
+\#define Y7\+\_\+\+GPIO\+\_\+\+NUM~39}
+
+\Hypertarget{plant1__config_8h_a62e3a96248f640e3a3f1c4f981114977}\index{plant1\_config.h@{plant1\_config.h}!Y8\_GPIO\_NUM@{Y8\_GPIO\_NUM}}
+\index{Y8\_GPIO\_NUM@{Y8\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{Y8\_GPIO\_NUM}{Y8\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_a62e3a96248f640e3a3f1c4f981114977} 
+\#define Y8\+\_\+\+GPIO\+\_\+\+NUM~34}
+
+\Hypertarget{plant1__config_8h_ac4bb8ab18cd4c266ab0488258bcf532b}\index{plant1\_config.h@{plant1\_config.h}!Y9\_GPIO\_NUM@{Y9\_GPIO\_NUM}}
+\index{Y9\_GPIO\_NUM@{Y9\_GPIO\_NUM}!plant1\_config.h@{plant1\_config.h}}
+\doxysubsubsection{\texorpdfstring{Y9\_GPIO\_NUM}{Y9\_GPIO\_NUM}}
+{\footnotesize\ttfamily \label{plant1__config_8h_ac4bb8ab18cd4c266ab0488258bcf532b} 
+\#define Y9\+\_\+\+GPIO\+\_\+\+NUM~35}
+

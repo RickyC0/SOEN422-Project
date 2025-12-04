@@ -1,0 +1,26 @@
+\doxysection{Debug\+Macros.\+h}
+\hypertarget{_debug_macros_8h_source}{}\label{_debug_macros_8h_source}\index{include/DebugMacros.h@{include/DebugMacros.h}}
+\mbox{\hyperlink{_debug_macros_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DEBUG\_MACROS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DEBUG\_MACROS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_system_config_8h}{SystemConfig.h}}"{}}\ \textcolor{comment}{//\ To\ get\ PLANT\_NAME}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ -\/-\/-\/\ MASTER\ SWITCH\ -\/-\/-\/}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Comment\ this\ line\ out\ to\ silence\ the\ entire\ system\ for\ production}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ENABLE\_DEBUG\ }}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifdef\ ENABLE\_DEBUG}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ This\ macro\ automatically\ adds\ the\ plant\ name\ and\ a\ new\ line}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Usage:\ LOG("{}Value\ is\ \%d"{},\ myValue);}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#define\ LOG(fmt,\ ...)\ Serial.printf("{}[\ "{}\ PLANT\_NAME\ "{}\ ]\ "{}\ fmt\ "{}\(\backslash\)n"{},\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ If\ debug\ is\ disabled,\ this\ replaces\ the\ code\ with\ nothing}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#define\ LOG(...)\ }}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,76 @@
+\doxysection{include/\+System\+Config.h File Reference}
+\hypertarget{_system_config_8h}{}\label{_system_config_8h}\index{include/SystemConfig.h@{include/SystemConfig.h}}
+{\ttfamily \#include "{}plants/plant1\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_system_config_8h_a231b1c0b28a8355cbb4721a37b32a19c}{FIREBASE\+\_\+\+API\+\_\+\+KEY}}~"{}AIza\+Sy\+Ao\+UInnpxk\+Wk\+Lnk\+LTI18t7\+BGXFgap\+RXAow"{}
+\begin{DoxyCompactList}\small\item\em Global System Configuration. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_system_config_8h_ad00e753b83545c09c83303ced0f9ae9a}{FIREBASE\+\_\+\+DB\+\_\+\+URL}}~"{}esp32-\/plant-\/care-\/default-\/rtdb.\+firebaseio.\+com"{}
+\begin{DoxyCompactList}\small\item\em Realtime Database URL. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_system_config_8h_a5fde6da4ab1bff63c406d0e3fdadf4e5}{STORAGE\+\_\+\+BUCKET\+\_\+\+ID\+\_\+\+WEB}}~"{}esp32-\/plant-\/care.\+firebasestorage.\+app"{}
+\begin{DoxyCompactList}\small\item\em Storage Bucket ID for the WEBSITE (Frontend). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_system_config_8h_a586542b79d00e4db7e1d5a667ae83a2b}{WIFI\+\_\+\+SSID}}~"{}Blackberry"{}
+\begin{DoxyCompactList}\small\item\em Wi-\/\+Fi SSID (Network Name). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_system_config_8h_a3c95561b03d0fcf9048b231ae2ba90fb}{WIFI\+\_\+\+PASS}}~"{}ricky0100"{}
+\begin{DoxyCompactList}\small\item\em Wi-\/\+Fi Password. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{_system_config_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_system_config_8h_a231b1c0b28a8355cbb4721a37b32a19c}\index{SystemConfig.h@{SystemConfig.h}!FIREBASE\_API\_KEY@{FIREBASE\_API\_KEY}}
+\index{FIREBASE\_API\_KEY@{FIREBASE\_API\_KEY}!SystemConfig.h@{SystemConfig.h}}
+\doxysubsubsection{\texorpdfstring{FIREBASE\_API\_KEY}{FIREBASE\_API\_KEY}}
+{\footnotesize\ttfamily \label{_system_config_8h_a231b1c0b28a8355cbb4721a37b32a19c} 
+\#define FIREBASE\+\_\+\+API\+\_\+\+KEY~"{}AIza\+Sy\+Ao\+UInnpxk\+Wk\+Lnk\+LTI18t7\+BGXFgap\+RXAow"{}}
+
+
+
+Global System Configuration. 
+
+Acts as the "{}\+Master Switch"{} for selecting which physical plant node this code is being compiled for. Also holds shared secrets and network credentials.
+
+Firebase Web API Key. Found in Firebase Console -\/\texorpdfstring{$>$}{>} Project Settings -\/\texorpdfstring{$>$}{>} General -\/\texorpdfstring{$>$}{>} Web API Key. Acts as the ID card for the device to talk to Google services. \Hypertarget{_system_config_8h_ad00e753b83545c09c83303ced0f9ae9a}\index{SystemConfig.h@{SystemConfig.h}!FIREBASE\_DB\_URL@{FIREBASE\_DB\_URL}}
+\index{FIREBASE\_DB\_URL@{FIREBASE\_DB\_URL}!SystemConfig.h@{SystemConfig.h}}
+\doxysubsubsection{\texorpdfstring{FIREBASE\_DB\_URL}{FIREBASE\_DB\_URL}}
+{\footnotesize\ttfamily \label{_system_config_8h_ad00e753b83545c09c83303ced0f9ae9a} 
+\#define FIREBASE\+\_\+\+DB\+\_\+\+URL~"{}esp32-\/plant-\/care-\/default-\/rtdb.\+firebaseio.\+com"{}}
+
+
+
+Realtime Database URL. 
+
+The address of the JSON database. \begin{DoxyWarning}{Warning}
+Do NOT include "{}https\+://"{} prefix for the ESP32 library. 
+\end{DoxyWarning}
+\Hypertarget{_system_config_8h_a5fde6da4ab1bff63c406d0e3fdadf4e5}\index{SystemConfig.h@{SystemConfig.h}!STORAGE\_BUCKET\_ID\_WEB@{STORAGE\_BUCKET\_ID\_WEB}}
+\index{STORAGE\_BUCKET\_ID\_WEB@{STORAGE\_BUCKET\_ID\_WEB}!SystemConfig.h@{SystemConfig.h}}
+\doxysubsubsection{\texorpdfstring{STORAGE\_BUCKET\_ID\_WEB}{STORAGE\_BUCKET\_ID\_WEB}}
+{\footnotesize\ttfamily \label{_system_config_8h_a5fde6da4ab1bff63c406d0e3fdadf4e5} 
+\#define STORAGE\+\_\+\+BUCKET\+\_\+\+ID\+\_\+\+WEB~"{}esp32-\/plant-\/care.\+firebasestorage.\+app"{}}
+
+
+
+Storage Bucket ID for the WEBSITE (Frontend). 
+
+Used in index.\+html. Format usually ends in "{}.\+firebasestorage.\+app"{}. \Hypertarget{_system_config_8h_a3c95561b03d0fcf9048b231ae2ba90fb}\index{SystemConfig.h@{SystemConfig.h}!WIFI\_PASS@{WIFI\_PASS}}
+\index{WIFI\_PASS@{WIFI\_PASS}!SystemConfig.h@{SystemConfig.h}}
+\doxysubsubsection{\texorpdfstring{WIFI\_PASS}{WIFI\_PASS}}
+{\footnotesize\ttfamily \label{_system_config_8h_a3c95561b03d0fcf9048b231ae2ba90fb} 
+\#define WIFI\+\_\+\+PASS~"{}ricky0100"{}}
+
+
+
+Wi-\/\+Fi Password. 
+
+\Hypertarget{_system_config_8h_a586542b79d00e4db7e1d5a667ae83a2b}\index{SystemConfig.h@{SystemConfig.h}!WIFI\_SSID@{WIFI\_SSID}}
+\index{WIFI\_SSID@{WIFI\_SSID}!SystemConfig.h@{SystemConfig.h}}
+\doxysubsubsection{\texorpdfstring{WIFI\_SSID}{WIFI\_SSID}}
+{\footnotesize\ttfamily \label{_system_config_8h_a586542b79d00e4db7e1d5a667ae83a2b} 
+\#define WIFI\+\_\+\+SSID~"{}Blackberry"{}}
+
+
+
+Wi-\/\+Fi SSID (Network Name). 
+

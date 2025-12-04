@@ -1,0 +1,33 @@
+\doxysection{include/\+Debug\+Macros.h File Reference}
+\hypertarget{_debug_macros_8h}{}\label{_debug_macros_8h}\index{include/DebugMacros.h@{include/DebugMacros.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}System\+Config.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_debug_macros_8h_a432138093c53d7580af9ec5c5dca387f}{ENABLE\+\_\+\+DEBUG}}
+\item 
+\#define \mbox{\hyperlink{_debug_macros_8h_a388edf12256bf73c3a8ee9734c3bd841}{LOG}}(fmt, ...)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{_debug_macros_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_debug_macros_8h_a432138093c53d7580af9ec5c5dca387f}\index{DebugMacros.h@{DebugMacros.h}!ENABLE\_DEBUG@{ENABLE\_DEBUG}}
+\index{ENABLE\_DEBUG@{ENABLE\_DEBUG}!DebugMacros.h@{DebugMacros.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_DEBUG}{ENABLE\_DEBUG}}
+{\footnotesize\ttfamily \label{_debug_macros_8h_a432138093c53d7580af9ec5c5dca387f} 
+\#define ENABLE\+\_\+\+DEBUG}
+
+\Hypertarget{_debug_macros_8h_a388edf12256bf73c3a8ee9734c3bd841}\index{DebugMacros.h@{DebugMacros.h}!LOG@{LOG}}
+\index{LOG@{LOG}!DebugMacros.h@{DebugMacros.h}}
+\doxysubsubsection{\texorpdfstring{LOG}{LOG}}
+{\footnotesize\ttfamily \label{_debug_macros_8h_a388edf12256bf73c3a8ee9734c3bd841} 
+\#define LOG(\begin{DoxyParamCaption}\item[{}]{fmt}{, }\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Serial.printf(\textcolor{stringliteral}{"{}[\ "{}}\ \mbox{\hyperlink{plant1__config_8h_aaed5be30e87e091fb60e6b6170157e75}{PLANT\_NAME}}\ \textcolor{stringliteral}{"{}\ ]\ "{}}\ fmt\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ \#\#\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}

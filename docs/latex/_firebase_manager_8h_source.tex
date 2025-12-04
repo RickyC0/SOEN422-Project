@@ -1,0 +1,35 @@
+\doxysection{Firebase\+Manager.\+h}
+\hypertarget{_firebase_manager_8h_source}{}\label{_firebase_manager_8h_source}\index{lib/FirebaseManager/FirebaseManager.h@{lib/FirebaseManager/FirebaseManager.h}}
+\mbox{\hyperlink{_firebase_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FIREBASE\_MANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FIREBASE\_MANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Firebase\_ESP\_Client.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_firebase_manager_a1dd6fee956656a7bcb43984302bd7ed3}{FirebaseManager}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ FirebaseData*\ \mbox{\hyperlink{class_firebase_manager_a06b1a119fc31b7ade17febc15f04b5b1}{\_fbdo}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \ \ \ \ FirebaseAuth*\ \mbox{\hyperlink{class_firebase_manager_a49a653063f7024a71bf3ca5f441b8b2c}{\_auth}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ FirebaseConfig*\ \mbox{\hyperlink{class_firebase_manager_a53adf848bd5c9aaddb834b0e42ab9312}{\_config}};}
+\DoxyCodeLine{00036\ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ String\ \mbox{\hyperlink{class_firebase_manager_a44f741ec75bdac2796c8730fd78424da}{\_plantPath}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_firebase_manager_a28e0d5e143bef7179467100f8b4e2183}{\_isReady}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_firebase_manager_a1dd6fee956656a7bcb43984302bd7ed3}{FirebaseManager}}(String\ plantId);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_firebase_manager_a46b44784912cc27f313b34d3bea17bd8}{begin}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_firebase_manager_a49e9737c40a0a46e379fa69b2d5728e2}{sendData}}(\textcolor{keywordtype}{int}\ moisture,\ \textcolor{keywordtype}{int}\ lightStatus,\ \textcolor{keywordtype}{bool}\ pumpOn,\ \textcolor{keywordtype}{bool}\ lightOn);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_firebase_manager_a4ff2a8f7cae36ad3aab4c141435f923a}{checkCommands}}(\textcolor{keywordtype}{bool}\ \&pumpCmd,\ \textcolor{keywordtype}{bool}\ \&lightCmd);}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

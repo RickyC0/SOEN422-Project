@@ -1,0 +1,27 @@
+\doxysection{Moisture\+Sensor.\+h}
+\hypertarget{_moisture_sensor_8h_source}{}\label{_moisture_sensor_8h_source}\index{lib/MoistureSensor/MoistureSensor.h@{lib/MoistureSensor/MoistureSensor.h}}
+\mbox{\hyperlink{_moisture_sensor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MOISTURE\_SENSOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MOISTURE\_SENSOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_moisture_sensor_a31e514b7e863898bca28da9e5f5abd31}{MoistureSensor}}\ \{}
+\DoxyCodeLine{00007\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_moisture_sensor_aceec0be473c51f7ab0b8a14a6174dd14}{\_pin}};}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_moisture_sensor_a48b8c0c54e659fa99365beb701cadfb7}{\_dryVal}};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_moisture_sensor_a856a76737914d31d675ec093c9f1e5c1}{\_wetVal}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_moisture_sensor_a31e514b7e863898bca28da9e5f5abd31}{MoistureSensor}}(\textcolor{keywordtype}{int}\ pin,\ \textcolor{keywordtype}{int}\ dryVal,\ \textcolor{keywordtype}{int}\ wetVal);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_moisture_sensor_a962da87e40fd98426de654b9570bff29}{begin}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_moisture_sensor_ae70264f4446cb1a5cebf72441aeb1e1a}{getPercentage}}();}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

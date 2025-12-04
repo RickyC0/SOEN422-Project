@@ -1,0 +1,111 @@
+\doxysection{Pump Class Reference}
+\hypertarget{class_pump}{}\label{class_pump}\index{Pump@{Pump}}
+
+
+Wrapper class for a Relay-\/\+Controlled Water \doxylink{class_pump}{Pump}.  
+
+
+
+
+{\ttfamily \#include $<$Pump.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pump_a3c252321e53d3d3d95d39710154e5e98}{Pump}} (int pin)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_pump}{Pump} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pump_a840ed977aa1398a164de656b93d90f38}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Configures the hardware pin as an OUTPUT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pump_adfab73f43c66875fb79cd996efd16dda}{turn\+On}} ()
+\begin{DoxyCompactList}\small\item\em Activates the pump. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pump_aaf3a220f3aa9a92701a1ced9cb4e6eb5}{turn\+Off}} ()
+\begin{DoxyCompactList}\small\item\em Deactivates the pump. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_pump_a505d687c197f8d9195dc9e0c3d92144f}{\+\_\+pin}}
+\begin{DoxyCompactList}\small\item\em The GPIO pin connected to the Relay Input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class for a Relay-\/\+Controlled Water \doxylink{class_pump}{Pump}. 
+
+Provides abstraction for turning a high-\/power pump ON/\+OFF safely using a digital GPIO pin. 
+
+\label{doc-constructors}
+\Hypertarget{class_pump_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pump_a3c252321e53d3d3d95d39710154e5e98}\index{Pump@{Pump}!Pump@{Pump}}
+\index{Pump@{Pump}!Pump@{Pump}}
+\doxysubsubsection{\texorpdfstring{Pump()}{Pump()}}
+{\footnotesize\ttfamily \label{class_pump_a3c252321e53d3d3d95d39710154e5e98} 
+Pump\+::\+Pump (\begin{DoxyParamCaption}\item[{int}]{pin}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_pump}{Pump} object. 
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em pin} & The GPIO pin number (e.\+g., 12, 14). Warning\+: Do not use Input-\/\+Only pins (34, 35, 36, 39) for pumps. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_pump_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pump_a840ed977aa1398a164de656b93d90f38}\index{Pump@{Pump}!begin@{begin}}
+\index{begin@{begin}!Pump@{Pump}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_pump_a840ed977aa1398a164de656b93d90f38} 
+void Pump\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configures the hardware pin as an OUTPUT. 
+
+Also sets the initial state to OFF (LOW) to prevent accidental watering during system reboot. \Hypertarget{class_pump_aaf3a220f3aa9a92701a1ced9cb4e6eb5}\index{Pump@{Pump}!turnOff@{turnOff}}
+\index{turnOff@{turnOff}!Pump@{Pump}}
+\doxysubsubsection{\texorpdfstring{turnOff()}{turnOff()}}
+{\footnotesize\ttfamily \label{class_pump_aaf3a220f3aa9a92701a1ced9cb4e6eb5} 
+void Pump\+::turn\+Off (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Deactivates the pump. 
+
+Sends a LOW signal to the relay. \Hypertarget{class_pump_adfab73f43c66875fb79cd996efd16dda}\index{Pump@{Pump}!turnOn@{turnOn}}
+\index{turnOn@{turnOn}!Pump@{Pump}}
+\doxysubsubsection{\texorpdfstring{turnOn()}{turnOn()}}
+{\footnotesize\ttfamily \label{class_pump_adfab73f43c66875fb79cd996efd16dda} 
+void Pump\+::turn\+On (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Activates the pump. 
+
+Sends a HIGH signal to the relay. Note\+: If using an "{}\+Active LOW"{} relay, this logic might be inverted. 
+
+\label{doc-variable-members}
+\Hypertarget{class_pump_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{class_pump_a505d687c197f8d9195dc9e0c3d92144f}\index{Pump@{Pump}!\_pin@{\_pin}}
+\index{\_pin@{\_pin}!Pump@{Pump}}
+\doxysubsubsection{\texorpdfstring{\_pin}{\_pin}}
+{\footnotesize\ttfamily \label{class_pump_a505d687c197f8d9195dc9e0c3d92144f} 
+int Pump\+::\+\_\+pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The GPIO pin connected to the Relay Input. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Pump/\mbox{\hyperlink{_pump_8h}{Pump.\+h}}\item 
+lib/\+Pump/\mbox{\hyperlink{_pump_8cpp}{Pump.\+cpp}}\end{DoxyCompactItemize}

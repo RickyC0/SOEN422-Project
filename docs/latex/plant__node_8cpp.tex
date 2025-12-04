@@ -1,0 +1,72 @@
+\doxysection{src/plant\+\_\+node.cpp File Reference}
+\hypertarget{plant__node_8cpp}{}\label{plant__node_8cpp}\index{src/plant\_node.cpp@{src/plant\_node.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}Firebase\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Wi\+Fi.\+h"{}}\newline
+{\ttfamily \#include "{}Debug\+Macros.\+h"{}}\newline
+{\ttfamily \#include "{}System\+Config.\+h"{}}\newline
+{\ttfamily \#include "{}Plant.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plant__node_8cpp_abf4d12a26fa69fa1dd75d6cac9c0f740}{init\+Wi\+Fi}} ()
+\item 
+void \mbox{\hyperlink{plant__node_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{plant__node_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \mbox{\hyperlink{plant__node_8cpp_a22b42e8e4f65fb28fe2c78232f08f238}{my\+Plant}} (\mbox{\hyperlink{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0}{PUMP\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016}{MOISTURE\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba}{LIGHT\+\_\+\+SENSOR\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb}{RGB\+\_\+\+RED\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e}{RGB\+\_\+\+GREEN\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb}{RGB\+\_\+\+BLUE\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0}{MOISTURE\+\_\+\+DRY}}, \mbox{\hyperlink{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e}{MOISTURE\+\_\+\+WET}}, \mbox{\hyperlink{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235}{MOISTURE\+\_\+\+THRESHOLD\+\_\+\+PERCENT}}, \mbox{\hyperlink{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62}{LIGHT\+\_\+\+THRESHOLD\+\_\+\+LEVEL}}, \mbox{\hyperlink{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108}{PUMP\+\_\+\+DURATION\+\_\+\+MS}}, \mbox{\hyperlink{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e}{WATERING\+\_\+\+COOLDOWN\+\_\+\+MS}}, \mbox{\hyperlink{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049}{MOISTURE\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}, \mbox{\hyperlink{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d}{LIGHT\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}, \mbox{\hyperlink{plant1__config_8h_a362579a1ab422353f691b6bcb4373255}{LIGHT\+\_\+\+PAUSE\+\_\+\+INTERVAL\+\_\+\+MS}})
+\item 
+\mbox{\hyperlink{class_firebase_manager}{Firebase\+Manager}} \mbox{\hyperlink{plant__node_8cpp_a476608ca62dde78208b7f4fade69b3d5}{cloud}} ("{}plant1"{})
+\item 
+unsigned long \mbox{\hyperlink{plant__node_8cpp_a1df1af8bd833f7b4d7995ffb3d6212c3}{last\+Upload\+Time}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{plant__node_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plant__node_8cpp_abf4d12a26fa69fa1dd75d6cac9c0f740}\index{plant\_node.cpp@{plant\_node.cpp}!initWiFi@{initWiFi}}
+\index{initWiFi@{initWiFi}!plant\_node.cpp@{plant\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{initWiFi()}{initWiFi()}}
+{\footnotesize\ttfamily \label{plant__node_8cpp_abf4d12a26fa69fa1dd75d6cac9c0f740} 
+void init\+Wi\+Fi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{plant__node_8cpp_afe461d27b9c48d5921c00d521181f12f}\index{plant\_node.cpp@{plant\_node.cpp}!loop@{loop}}
+\index{loop@{loop}!plant\_node.cpp@{plant\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{plant__node_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{plant__node_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{plant\_node.cpp@{plant\_node.cpp}!setup@{setup}}
+\index{setup@{setup}!plant\_node.cpp@{plant\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{plant__node_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{plant__node_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{plant__node_8cpp_a476608ca62dde78208b7f4fade69b3d5}\index{plant\_node.cpp@{plant\_node.cpp}!cloud@{cloud}}
+\index{cloud@{cloud}!plant\_node.cpp@{plant\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{cloud}{cloud}}
+{\footnotesize\ttfamily \label{plant__node_8cpp_a476608ca62dde78208b7f4fade69b3d5} 
+\mbox{\hyperlink{class_firebase_manager}{Firebase\+Manager}} cloud("{}plant1"{}) (\begin{DoxyParamCaption}\item[{"{}plant1"{}}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{plant__node_8cpp_a1df1af8bd833f7b4d7995ffb3d6212c3}\index{plant\_node.cpp@{plant\_node.cpp}!lastUploadTime@{lastUploadTime}}
+\index{lastUploadTime@{lastUploadTime}!plant\_node.cpp@{plant\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{lastUploadTime}{lastUploadTime}}
+{\footnotesize\ttfamily \label{plant__node_8cpp_a1df1af8bd833f7b4d7995ffb3d6212c3} 
+unsigned long last\+Upload\+Time = 0}
+
+\Hypertarget{plant__node_8cpp_a22b42e8e4f65fb28fe2c78232f08f238}\index{plant\_node.cpp@{plant\_node.cpp}!myPlant@{myPlant}}
+\index{myPlant@{myPlant}!plant\_node.cpp@{plant\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{myPlant}{myPlant}}
+{\footnotesize\ttfamily \label{plant__node_8cpp_a22b42e8e4f65fb28fe2c78232f08f238} 
+\mbox{\hyperlink{class_plant}{Plant}} my\+Plant(\mbox{\hyperlink{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0}{PUMP\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016}{MOISTURE\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba}{LIGHT\+\_\+\+SENSOR\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb}{RGB\+\_\+\+RED\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e}{RGB\+\_\+\+GREEN\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb}{RGB\+\_\+\+BLUE\+\_\+\+PIN}}, \mbox{\hyperlink{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0}{MOISTURE\+\_\+\+DRY}}, \mbox{\hyperlink{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e}{MOISTURE\+\_\+\+WET}}, \mbox{\hyperlink{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235}{MOISTURE\+\_\+\+THRESHOLD\+\_\+\+PERCENT}}, \mbox{\hyperlink{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62}{LIGHT\+\_\+\+THRESHOLD\+\_\+\+LEVEL}}, \mbox{\hyperlink{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108}{PUMP\+\_\+\+DURATION\+\_\+\+MS}}, \mbox{\hyperlink{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e}{WATERING\+\_\+\+COOLDOWN\+\_\+\+MS}}, \mbox{\hyperlink{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049}{MOISTURE\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}, \mbox{\hyperlink{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d}{LIGHT\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}, \mbox{\hyperlink{plant1__config_8h_a362579a1ab422353f691b6bcb4373255}{LIGHT\+\_\+\+PAUSE\+\_\+\+INTERVAL\+\_\+\+MS}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0}{PUMP\+\_\+\+PIN}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016}{MOISTURE\+\_\+\+PIN}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba}{LIGHT\+\_\+\+SENSOR\+\_\+\+PIN}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb}{RGB\+\_\+\+RED\+\_\+\+PIN}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e}{RGB\+\_\+\+GREEN\+\_\+\+PIN}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb}{RGB\+\_\+\+BLUE\+\_\+\+PIN}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0}{MOISTURE\+\_\+\+DRY}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e}{MOISTURE\+\_\+\+WET}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235}{MOISTURE\+\_\+\+THRESHOLD\+\_\+\+PERCENT}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62}{LIGHT\+\_\+\+THRESHOLD\+\_\+\+LEVEL}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108}{PUMP\+\_\+\+DURATION\+\_\+\+MS}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e}{WATERING\+\_\+\+COOLDOWN\+\_\+\+MS}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049}{MOISTURE\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d}{LIGHT\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}}]{}{, }\item[{\mbox{\hyperlink{plant1__config_8h_a362579a1ab422353f691b6bcb4373255}{LIGHT\+\_\+\+PAUSE\+\_\+\+INTERVAL\+\_\+\+MS}}}]{}{}\end{DoxyParamCaption})}
+

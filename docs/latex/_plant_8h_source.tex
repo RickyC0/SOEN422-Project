@@ -1,0 +1,88 @@
+\doxysection{Plant.\+h}
+\hypertarget{_plant_8h_source}{}\label{_plant_8h_source}\index{lib/Plant/Plant.h@{lib/Plant/Plant.h}}
+\mbox{\hyperlink{_plant_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLANT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLANT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_debug_macros_8h}{DebugMacros.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_system_config_8h}{SystemConfig.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_pump_8h}{Pump.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_moisture_sensor_8h}{MoistureSensor.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_light_sensor_8h}{LightSensor.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant_a549bb64c96b299fb0261a03d04d696be}{Plant}}\ \{}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ COMPONENTS\ -\/-\/-\/}}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_pump}{Pump}}\ \mbox{\hyperlink{class_plant_a77cc36f345d478094e80f595a0bc89c0}{\_pump}};}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_moisture_sensor}{MoistureSensor}}\ \mbox{\hyperlink{class_plant_a7fbeb2c8a1bbdca5686e30d6e51af8cd}{\_moisture}};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_light_sensor}{LightSensor}}\ \mbox{\hyperlink{class_plant_a9166c16fc0031af391f25cd01e7abf75}{\_lightSensor}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ PINS\ -\/-\/-\/}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_plant_a3cd7ea9ceaaaa80b26ae1a5adea54618}{\_pinRed}},\ \mbox{\hyperlink{class_plant_a0abdf541fb0fe0b548affd0733191086}{\_pinGreen}},\ \mbox{\hyperlink{class_plant_a615784a65094e28c5e531ea3f3beb830}{\_pinBlue}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ STATE\ VARIABLES\ -\/-\/-\/}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6}{WateringState}}\ \{\ \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a9a63544a81f504953b9c5882f6e07b9e}{W\_IDLE}},\ \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a93e38d187fded59ef705cf751d26b455}{W\_PUMPING}},\ \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6ae7400655de94541203d704ceab474806}{W\_COOLDOWN}}\ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6}{WateringState}}\ \mbox{\hyperlink{class_plant_aa20901d4208e028fa8db2889e5232b56}{\_waterState}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_plant_afd15aa33d12fc39706b40fc057c8f0fa}{\_lightingActive}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ TIMERS\ (For\ tracking\ time)\ -\/-\/-\/}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_a7836281a431c99a14a62871d7846c087}{\_waterTimer}};\ \textcolor{comment}{//\ Tracks\ pump\ duration/cooldown}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_a987612569fdc2d01494e9a919aac4747}{\_lightCheckTimer}};\ \textcolor{comment}{//\ Tracks\ light\ checking\ interval}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_a048742b8b19fbb4e4e71bca95b6c2268}{\_moistureCheckTimer}};\ \textcolor{comment}{//\ Tracks\ moisture\ checking\ interval}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ SETTINGS\ (Loaded\ from\ Config\ via\ Constructor)\ -\/-\/-\/}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_plant_ad4de27d46fff1614c2c5da735034075c}{\_moistThreshold}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_plant_ae961daf11490143f2f933bbd131237ee}{\_lightThreshold}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_a2e8947f091a605bdf60659bf500e9c1e}{\_pumpDuration}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_a653bdcbd0b079a92b56d2c7cb93c46d4}{\_pumpCooldown}};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_acbee7e86cfcf0d5bce53ea2bfe3fc029}{\_moistCheckInterval}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_ac968f627b5ea97b1593f1fbdaeaa2d78}{\_lightCheckInterval}};}
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ PEEKING\ VARIABLES\ -\/-\/-\/}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_plant_a4d177ac88c68066ce6dc36e5ad353717}{\_isPeekingLight}};\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_ac317e781d814ab365cc3def432f34d3d}{\_peekLightTimer}};\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_plant_aa050d7a764a83129dce9e6a62602bcb6}{\_pauseLightInterval}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_plant_a549bb64c96b299fb0261a03d04d696be}{Plant}}(\textcolor{keywordtype}{int}\ pumpPin\ =\ \mbox{\hyperlink{plant1__config_8h_a02a786fd2e2f38748aa579ebd58ee8c0}{PUMP\_PIN}},\ \textcolor{keywordtype}{int}\ moistPin\ =\ \mbox{\hyperlink{plant1__config_8h_a9b2bcd64ccdba43bb6caf85fff6fa016}{MOISTURE\_PIN}},\ \textcolor{keywordtype}{int}\ lightPin\ =\ \mbox{\hyperlink{plant1__config_8h_adfd6a3f8aa3f1c719f648de4e3701fba}{LIGHT\_SENSOR\_PIN}},\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ red\_led\_Pin\ =\ \mbox{\hyperlink{plant1__config_8h_a674fcfb292e527072f6912335ab5f7eb}{RGB\_RED\_PIN}},\ \textcolor{keywordtype}{int}\ green\_led\_Pin\ =\ \mbox{\hyperlink{plant1__config_8h_ae575a1e42e15f26660fa41c50771e05e}{RGB\_GREEN\_PIN}},\ \textcolor{keywordtype}{int}\ blue\_led\_Pin\ =\ \mbox{\hyperlink{plant1__config_8h_a6cc9d696e520a31363325c1553c6fecb}{RGB\_BLUE\_PIN}},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dry\_moist\_sensor\_val\ =\ \mbox{\hyperlink{plant1__config_8h_a94ea75cfc15be9e00c237c1cfa98ccb0}{MOISTURE\_DRY}},\ \textcolor{keywordtype}{int}\ wet\_moist\_sensor\_val\ =\ \mbox{\hyperlink{plant1__config_8h_ab4c6ae9ecd7265d5a11e33ea5763072e}{MOISTURE\_WET}},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ moist\_sensor\_thresh\ =\ \mbox{\hyperlink{plant1__config_8h_a6c6835a54557cff23c2f49ccf63ee235}{MOISTURE\_THRESHOLD\_PERCENT}},\ \textcolor{keywordtype}{int}\ light\_sensor\_thresh\ =\ \mbox{\hyperlink{plant1__config_8h_a8f01c250016ab2661a0b6bd1a6e3cf62}{LIGHT\_THRESHOLD\_LEVEL}},}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ pump\_for\_ms\ =\ \mbox{\hyperlink{plant1__config_8h_ad8a2754d26500846314b2f34ba58f108}{PUMP\_DURATION\_MS}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ pump\_cooldown\_ms\ =\ \mbox{\hyperlink{plant1__config_8h_add1ec677cbdeb13462413725ee4c504e}{WATERING\_COOLDOWN\_MS}},}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ moist\_check\_interval\_ms\ =\ \mbox{\hyperlink{plant1__config_8h_a01a1a039cba374eb11654fa6631e8049}{MOISTURE\_CHECK\_INTERVAL\_MS}},\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ light\_check\_interval\_ms\ =\ \mbox{\hyperlink{plant1__config_8h_ae084c42a889eccfd68e52109d584ee8d}{LIGHT\_CHECK\_INTERVAL\_MS}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ pause\_light\_interval\_ms\ =\ \mbox{\hyperlink{plant1__config_8h_a362579a1ab422353f691b6bcb4373255}{LIGHT\_PAUSE\_INTERVAL\_MS}});}
+\DoxyCodeLine{00072\ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_a92091c351f5ef6c36284c274ed26eb2d}{begin}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_a5bc9bbea5228581b25660b37169f8c88}{update}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_a7a55d425fecf0df455f98f4bb032d883}{manageWatering}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ now);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_a6af05d1ed986105ac71ed0c74a1da73d}{manageLighting}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ now);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_aa39a7727ab2436056ec9787589726b3b}{manageRGB}}(\textcolor{keywordtype}{int}\ r,\ \textcolor{keywordtype}{int}\ g,\ \textcolor{keywordtype}{int}\ b);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_aadb72b223e3bbbd2cced5d2da4b1fb13}{manualPumpTrigger}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_ac692ea5616eb8c8640a061c2a0c6fda6}{manualLightToggle}}();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ GETTERS\ FOR\ WEBSITE\ -\/-\/-\/}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ These\ allow\ the\ website/FirebaseManager\ to\ peek\ at\ private\ variables}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_plant_ab4b6a5a8649e8b2660de6345043c65c1}{getMoisturePercent}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_plant_a7fbeb2c8a1bbdca5686e30d6e51af8cd}{\_moisture}}.getPercentage();\ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_plant_aba268bd93dd9891b8c79748eedf2e05d}{getLightStatus}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_plant_a9166c16fc0031af391f25cd01e7abf75}{\_lightSensor}}.getLightStatus();\ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_plant_a552971773565dca9d2ac0aa953fc2fbb}{isPumpRunning}}()\ \{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_plant_aa20901d4208e028fa8db2889e5232b56}{\_waterState}}\ ==\ \mbox{\hyperlink{class_plant_a93819fc30e14fd0d83a4d326f5749cc6a93e38d187fded59ef705cf751d26b455}{W\_PUMPING}});\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_plant_a45b8a549f470c6aa205bacac015bf405}{isLightOn}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_plant_afd15aa33d12fc39706b40fc057c8f0fa}{\_lightingActive}};\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00153\ \ \ \ \ String\ \mbox{\hyperlink{class_plant_a439e6d2f20f997fedd316c0d6eba5a53}{getPlantName}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{plant1__config_8h_aaed5be30e87e091fb60e6b6170157e75}{PLANT\_NAME}};\ \}}
+\DoxyCodeLine{00154\ \};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
